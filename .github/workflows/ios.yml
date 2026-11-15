@@ -62,6 +62,16 @@ jobs:
         if: always()
         run: grep -E "warning:" build.log | grep -v "Run script build phase" | sort -u | head -50 || true
 
+      - name: Controlla il contenuto dell'app
+        run: |
+          APP=build/Build/Products/Release-iphoneos/Lieve.app
+          test -x "$APP/Lieve"
+          test -s "$APP/FilterPack.lvp"
+          test -s "$APP/PrivacyInfo.xcprivacy"
+          test -s "$APP/Assets.car"
+          plutil -p "$APP/Info.plist" | grep -E "CFBundleIdentifier|CFBundleVersion|MinimumOSVersion|UIBackgroundModes|audio|LieveFilters|CFBundleIconName"
+          ls -lh "$APP/FilterPack.lvp"
+
       - name: Crea IPA
         run: |
           mkdir -p ipa/Payload
