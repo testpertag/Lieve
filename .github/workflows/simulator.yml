@@ -1,0 +1,84 @@
+name: Simulatore
+
+# Prova automatica nel simulatore iPhone: avvia Lieve, apre YouTube e un video,
+# salva screenshot nel branch "simulator-screenshots" e la build per Appetize.io.
+
+on:
+  workflow_dispatch:
+    inputs:
+      video:
+        description: "URL del video da aprire"
+        default: "https://m.youtube.com/watch?v=dQw4w9WgXcQ"
+
+permissions:
+  contents: write
+
+jobs:
+  smoke:
+    runs-on: macos-26
+    timeout-minutes: 30
+    env:
+      VIDEO: ${{ inputs.video || 'https://m.youtube.com/watch?v=dQw4w9WgXcQ' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test, filtri e progetto
+        run: bash ci/prepare.sh
+
+      - name: Compila per il simulatore
+        run: |
+          set +e
+          xcodebuild -project Lieve.xcodeproj -scheme Lieve -configuration Debug \
+            -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build CODE_SIGNING_ALLOWED=NO build > build.log 2>&1
+          STATUS=$?
+          grep -E "error:|\*\* BUILD" build.log | sort -u
+          exit $STATUS
+
+      - name: Avvia e fotografa
+        run: |
+          APP=build/Build/Products/Debug-iphonesimulator/Lieve.app
+          UDID=$(xcrun simctl list devices available -j | python3 -c '
+          import json, sys
+          d = json.load(sys.stdin)["devices"]
+          print(next(x["udid"] for k, v in sorted(d.items(), reverse=True) if "iOS" in k for x in v if x["name"].startswith("iPhone")))')
+          xcrun simctl boot "$UDID"
+          xcrun simctl bootstatus "$UDID" -b > /dev/null
+          xcrun simctl install "$UDID" "$APP"
+          ID=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$APP/Info.plist")
+          mkdir -p shots
+          xcrun simctl spawn "$UDID" log stream --style compact --predicate 'process == "Lieve"' > shots/log.txt 2>&1 &
+
+          xcrun simctl launch "$UDID" "$ID"
+          sleep 25; xcrun simctl io "$UDID" screenshot shots/1-home.png
+
+          xcrun simctl terminate "$UDID" "$ID"
+          xcrun simctl launch "$UDID" "$ID" -LieveStartURL "$VIDEO"
+          sleep 15; xcrun simctl io "$UDID" screenshot shots/2-video-15s.png
+          sleep 20; xcrun simctl io "$UDID" screenshot shots/3-video-35s.png
+          sleep 25; xcrun simctl io "$UDID" screenshot shots/4-video-60s.png
+          kill %1 || true
+          ls -l shots
+
+      - name: Pubblica screenshot
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          cp -R shots "$RUNNER_TEMP/shots"
+          git checkout --orphan screenshots-tmp
+          git rm -rf --quiet . && git clean -fdq
+          cp "$RUNNER_TEMP"/shots/* .
+          git add -A
+          git commit -qm "Screenshot simulatore $GITHUB_RUN_NUMBER"
+          git push -f origin HEAD:simulator-screenshots
+
+      - name: Build per Appetize.io
+        if: always()
+        run: cd build/Build/Products/Debug-iphonesimulator && zip -qry "$GITHUB_WORKSPACE/Lieve-simulator.zip" Lieve.app
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Lieve-simulator
+          path: Lieve-simulator.zip
+          retention-days: 14

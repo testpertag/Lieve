@@ -26,7 +26,15 @@ struct LieveApp: App {
 }
 
 enum AppConfig {
-    static let homeURL = URL(string: "https://m.youtube.com/")!
+    static var homeURL: URL {
+        #if DEBUG
+        // Solo per i test nel simulatore: xcrun simctl launch … -LieveStartURL <url>
+        if let value = UserDefaults.standard.string(forKey: "LieveStartURL"), let url = URL(string: value) {
+            return url
+        }
+        #endif
+        return URL(string: "https://m.youtube.com/")!
+    }
     /// Motore di ricerca per testo non riconosciuto come indirizzo.
     static func searchURL(for query: String) -> URL? {
         var components = URLComponents(string: "https://duckduckgo.com/")
