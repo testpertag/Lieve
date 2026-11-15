@@ -1,0 +1,26 @@
+{
+  "format": 1,
+  "description": "Definizione del pacchetto filtri di Lieve. Modifica questo file, gli script e le regole: GitHub Actions ricostruisce, firma e pubblica il pacchetto.",
+  "ruleLists": [
+    { "id": "youtube", "file": "rules/youtube.json", "critical": true }
+  ],
+  "remoteLists": [
+    { "id": "easylist", "url": "https://easylist.to/easylist/easylist.txt", "cosmetic": "specific" },
+    { "id": "easyprivacy", "url": "https://easylist.to/easylist/easyprivacy.txt", "cosmetic": "none" }
+  ],
+  "maxRulesPerList": 40000,
+  "scripts": [
+    {
+      "id": "youtube-page",
+      "file": "scripts/youtube-page.js",
+      "world": "page",
+      "hosts": ["youtube.com", "youtube-nocookie.com"]
+    },
+    {
+      "id": "youtube-isolated",
+      "file": "scripts/youtube-isolated.js",
+      "world": "lieve",
+      "hosts": ["youtube.com", "youtube-nocookie.com"]
+    }
+  ]
+}

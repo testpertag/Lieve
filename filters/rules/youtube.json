@@ -1,0 +1,22 @@
+[
+  { "trigger": { "url-filter": "^https?://([^/]+\\.)?youtube\\.com/api/stats/ads" }, "action": { "type": "block" } },
+  { "trigger": { "url-filter": "^https?://([^/]+\\.)?youtube\\.com/api/stats/atr" }, "action": { "type": "block" } },
+  { "trigger": { "url-filter": "^https?://([^/]+\\.)?youtube\\.com/pagead/" }, "action": { "type": "block" } },
+  { "trigger": { "url-filter": "^https?://([^/]+\\.)?youtube\\.com/ptracking" }, "action": { "type": "block" } },
+  { "trigger": { "url-filter": "^https?://([^/]+\\.)?youtube\\.com/get_midroll_" }, "action": { "type": "block" } },
+  { "trigger": { "url-filter": "^https?://([^/]+\\.)?youtube\\.com/youtubei/v1/player/ad_break" }, "action": { "type": "block" } },
+  { "trigger": { "url-filter": "^https?://([^/]+\\.)?doubleclick\\.net[:/]" }, "action": { "type": "block" } },
+  { "trigger": { "url-filter": "^https?://([^/]+\\.)?googlesyndication\\.com[:/]" }, "action": { "type": "block" } },
+  { "trigger": { "url-filter": "^https?://([^/]+\\.)?googleadservices\\.com[:/]" }, "action": { "type": "block" } },
+  { "trigger": { "url-filter": "^https?://imasdk\\.googleapis\\.com[:/]" }, "action": { "type": "block" } },
+  { "trigger": { "url-filter": "^https?://([^/]+\\.)?google-analytics\\.com[:/]" }, "action": { "type": "block" } },
+  { "trigger": { "url-filter": "^https?://([^/]+\\.)?googletagmanager\\.com[:/]" }, "action": { "type": "block" } },
+  { "trigger": { "url-filter": "^https?://([^/]+\\.)?googletagservices\\.com[:/]" }, "action": { "type": "block" } },
+  {
+    "trigger": { "url-filter": ".*", "if-domain": ["*youtube.com", "*youtube-nocookie.com"] },
+    "action": {
+      "type": "css-display-none",
+      "selector": "ytm-promoted-sparkles-web-renderer, ytm-promoted-sparkles-text-search-renderer, ytm-promoted-video-renderer, ytm-companion-ad-renderer, ytm-companion-slot, ad-slot-renderer, ytm-statement-banner-renderer, ytm-mealbar-promo-renderer, ytm-paid-content-overlay-renderer, .ytp-ad-overlay-container, .ytp-ad-image-overlay, .ytp-featured-product, #player-ads, #masthead-ad, ytd-ad-slot-renderer, ytd-in-feed-ad-layout-renderer, ytd-promoted-sparkles-web-renderer, ytd-banner-promo-renderer, ytd-statement-banner-renderer, ytd-display-ad-renderer, ytd-compact-promoted-video-renderer, ytd-promoted-video-renderer, ytd-player-legacy-desktop-watch-ads-renderer"
+    }
+  }
+]

@@ -1,0 +1,181 @@
+name: iOS
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      testflight:
+        description: "Firma con certificato Apple e carica su TestFlight"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Imposta la variabile di repository BUNDLE_ID (Settings → Secrets and variables → Actions → Variables).
+  BUNDLE_ID: ${{ vars.BUNDLE_ID || 'com.example.lieve' }}
+  BUILD_NUMBER: ${{ github.run_number }}
+
+jobs:
+  # ------------------------------------------------------------------
+  # 1) Build NON firmata → Lieve-unsigned.ipa da firmare con Sideloadly
+  # ------------------------------------------------------------------
+  unsigned:
+    runs-on: macos-26
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Versione Xcode
+        run: xcodebuild -version
+
+      - name: Test, filtri e progetto
+        env:
+          FILTERS_SIGNING_KEY: ${{ secrets.FILTERS_SIGNING_KEY }}
+        run: bash ci/prepare.sh
+
+      - name: Compila (senza firma)
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project Lieve.xcodeproj -scheme Lieve -configuration Release \
+            -destination 'generic/platform=iOS' -derivedDataPath build \
+            PRODUCT_BUNDLE_IDENTIFIER="$BUNDLE_ID" \
+            CURRENT_PROJECT_VERSION="$BUILD_NUMBER" \
+            LIEVE_FILTERS_URL="${LIEVE_FILTERS_URL:-}" \
+            LIEVE_FILTERS_PUBKEY="${LIEVE_FILTERS_PUBKEY:-}" \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            build 2>&1 | tee build.log | grep -E "error:|BUILD" || true
+          test -d build/Build/Products/Release-iphoneos/Lieve.app
+
+      - name: Avvisi del compilatore
+        if: always()
+        run: grep -E "warning:" build.log | grep -v "Run script build phase" | sort -u | head -50 || true
+
+      - name: Crea IPA
+        run: |
+          mkdir -p ipa/Payload
+          cp -R build/Build/Products/Release-iphoneos/Lieve.app ipa/Payload/
+          cd ipa && zip -qry ../Lieve-unsigned.ipa Payload
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Lieve-unsigned-${{ github.run_number }}
+          path: Lieve-unsigned.ipa
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: build-log
+          path: build.log
+
+  # ------------------------------------------------------------------
+  # 2) Build firmata e upload su TestFlight (richiede Apple Developer Program)
+  # ------------------------------------------------------------------
+  testflight:
+    if: github.event_name == 'workflow_dispatch' && inputs.testflight
+    needs: unsigned
+    runs-on: macos-26
+    timeout-minutes: 40
+    env:
+      TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+      P12_BASE64: ${{ secrets.DIST_CERT_P12_BASE64 }}
+      P12_PASSWORD: ${{ secrets.DIST_CERT_PASSWORD }}
+      PROFILE_BASE64: ${{ secrets.APPSTORE_PROFILE_BASE64 }}
+      ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+      ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+      ASC_KEY_P8_BASE64: ${{ secrets.ASC_KEY_P8_BASE64 }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test, filtri e progetto
+        env:
+          FILTERS_SIGNING_KEY: ${{ secrets.FILTERS_SIGNING_KEY }}
+        run: bash ci/prepare.sh
+
+      - name: Installa certificato e profilo
+        run: |
+          KEYCHAIN="$RUNNER_TEMP/signing.keychain-db"
+          KC_PW="$(uuidgen)"
+          echo "KEYCHAIN=$KEYCHAIN" >> "$GITHUB_ENV"
+
+          echo "$P12_BASE64" | base64 --decode > "$RUNNER_TEMP/cert.p12"
+          security create-keychain -p "$KC_PW" "$KEYCHAIN"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN"
+          security unlock-keychain -p "$KC_PW" "$KEYCHAIN"
+          security import "$RUNNER_TEMP/cert.p12" -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k "$KEYCHAIN"
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KC_PW" "$KEYCHAIN" > /dev/null
+          security list-keychains -d user -s "$KEYCHAIN" $(security list-keychains -d user | tr -d '"')
+
+          PROFILE="$RUNNER_TEMP/profile.mobileprovision"
+          echo "$PROFILE_BASE64" | base64 --decode > "$PROFILE"
+          security cms -D -i "$PROFILE" > "$RUNNER_TEMP/profile.plist"
+          PROFILE_NAME=$(/usr/libexec/PlistBuddy -c 'Print :Name' "$RUNNER_TEMP/profile.plist")
+          PROFILE_UUID=$(/usr/libexec/PlistBuddy -c 'Print :UUID' "$RUNNER_TEMP/profile.plist")
+          echo "PROFILE_NAME=$PROFILE_NAME" >> "$GITHUB_ENV"
+          for DIR in "$HOME/Library/MobileDevice/Provisioning Profiles" \
+                     "$HOME/Library/Developer/Xcode/UserData/Provisioning Profiles"; do
+            mkdir -p "$DIR"
+            cp "$PROFILE" "$DIR/$PROFILE_UUID.mobileprovision"
+          done
+
+          echo "$ASC_KEY_P8_BASE64" | base64 --decode > "$RUNNER_TEMP/AuthKey.p8"
+
+      - name: Archivia
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project Lieve.xcodeproj -scheme Lieve -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/Lieve.xcarchive" \
+            PRODUCT_BUNDLE_IDENTIFIER="$BUNDLE_ID" \
+            CURRENT_PROJECT_VERSION="$BUILD_NUMBER" \
+            LIEVE_FILTERS_URL="${LIEVE_FILTERS_URL:-}" \
+            LIEVE_FILTERS_PUBKEY="${LIEVE_FILTERS_PUBKEY:-}" \
+            DEVELOPMENT_TEAM="$TEAM_ID" \
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_IDENTITY="Apple Distribution" \
+            PROVISIONING_PROFILE_SPECIFIER="$PROFILE_NAME" \
+            OTHER_CODE_SIGN_FLAGS="--keychain $KEYCHAIN" \
+            archive | grep -E "error:|warning:|ARCHIVE" || true
+          test -d "$RUNNER_TEMP/Lieve.xcarchive"
+
+      - name: Esporta e carica su TestFlight
+        run: |
+          cat > "$RUNNER_TEMP/ExportOptions.plist" <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>app-store-connect</string>
+            <key>destination</key><string>upload</string>
+            <key>teamID</key><string>${TEAM_ID}</string>
+            <key>signingStyle</key><string>manual</string>
+            <key>signingCertificate</key><string>Apple Distribution</string>
+            <key>provisioningProfiles</key><dict>
+              <key>${BUNDLE_ID}</key><string>${PROFILE_NAME}</string>
+            </dict>
+            <key>manageAppVersionAndBuildNumber</key><false/>
+            <key>uploadSymbols</key><true/>
+          </dict></plist>
+          EOF
+          xcodebuild -exportArchive \
+            -archivePath "$RUNNER_TEMP/Lieve.xcarchive" \
+            -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
+            -exportPath "$RUNNER_TEMP/export" \
+            -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" \
+            -authenticationKeyID "$ASC_KEY_ID" \
+            -authenticationKeyIssuerID "$ASC_ISSUER_ID"
+
+      - name: Pulizia
+        if: always()
+        run: |
+          security delete-keychain "$KEYCHAIN" 2>/dev/null || true
+          rm -f "$RUNNER_TEMP"/cert.p12 "$RUNNER_TEMP"/AuthKey.p8 "$RUNNER_TEMP"/profile.*

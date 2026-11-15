@@ -1,0 +1,71 @@
+name: Filtri
+
+# Ricostruisce il pacchetto filtri (EasyList + EasyPrivacy + regole e script YouTube),
+# lo verifica con il compilatore WebKit, lo firma e lo pubblica nella release "filters".
+# L'app lo scarica da sola (al massimo una volta al giorno) senza bisogno di reinstallarla.
+
+on:
+  push:
+    branches: [main]
+    paths: ["filters/**"]
+  schedule:
+    - cron: "23 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: filters
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test
+        run: |
+          python3 -c "import cryptography" 2>/dev/null || \
+            python3 -m pip install --quiet --break-system-packages cryptography || \
+            python3 -m pip install --quiet cryptography
+          python3 -m unittest discover -s filters/tests
+          node filters/tests/media-bridge.test.mjs
+
+      - name: Costruisci, verifica e firma
+        env:
+          FILTERS_SIGNING_KEY: ${{ secrets.FILTERS_SIGNING_KEY }}
+        run: |
+          if [ -z "$FILTERS_SIGNING_KEY" ]; then
+            echo "::warning::Segreto FILTERS_SIGNING_KEY assente: nessuna pubblicazione."
+            echo "SKIP_PUBLISH=1" >> "$GITHUB_ENV"
+            exit 0
+          fi
+          KEY="$RUNNER_TEMP/key.pem"
+          printf '%s\n' "$FILTERS_SIGNING_KEY" > "$KEY"
+          bash filters/tools/make_pack.sh dist/pack.lvp "$KEY"
+          python3 filters/tools/build_pack.py verify --pack dist/pack.lvp \
+            --pubkey "$(python3 filters/tools/build_pack.py pubkey --key "$KEY")"
+          rm -f "$KEY"
+          node filters/tests/scripts.test.mjs dist/pack.lvp
+
+      - name: Pubblica se cambiato
+        if: env.SKIP_PUBLISH != '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view filters >/dev/null 2>&1 || \
+            gh release create filters --title "Filtri Lieve" --latest=false \
+              --notes "Pacchetto filtri firmato, aggiornato automaticamente. Non scaricare manualmente."
+          OLD="$(gh release download filters -p pack.lvp.hash -O - 2>/dev/null || true)"
+          NEW="$(cat dist/pack.lvp.hash)"
+          if [ "$OLD" = "$NEW" ]; then
+            echo "Contenuto invariato: nessun aggiornamento pubblicato."
+            exit 0
+          fi
+          # Prima il pacchetto, poi l'impronta: l'app vede la nuova impronta solo a pacchetto pronto.
+          gh release upload filters dist/pack.lvp --clobber
+          gh release upload filters dist/pack.lvp.hash --clobber
+          echo "Pubblicato $NEW"
