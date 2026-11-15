@@ -60,6 +60,15 @@ jobs:
           kill %1 || true
           ls -l shots
 
+      - name: Build per Appetize.io
+        run: cd build/Build/Products/Debug-iphonesimulator && zip -qry "$RUNNER_TEMP/Lieve-simulator.zip" Lieve.app
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Lieve-simulator
+          path: ${{ runner.temp }}/Lieve-simulator.zip
+          retention-days: 14
+
       - name: Pubblica screenshot
         run: |
           git config user.name "github-actions"
@@ -72,13 +81,3 @@ jobs:
           git commit -qm "Screenshot simulatore $GITHUB_RUN_NUMBER"
           git push -f origin HEAD:simulator-screenshots
 
-      - name: Build per Appetize.io
-        if: always()
-        run: cd build/Build/Products/Debug-iphonesimulator && zip -qry "$GITHUB_WORKSPACE/Lieve-simulator.zip" Lieve.app
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: Lieve-simulator
-          path: Lieve-simulator.zip
-          retention-days: 14
