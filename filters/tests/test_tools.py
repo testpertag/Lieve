@@ -39,6 +39,8 @@ example.com##div:has-text(Sponsor)
 ||cancel.com^
 ||cancel.com^$badfilter
 ||ünicode.com^
+/addyn|*;adtech;
+/ad{2}x/
 """
 
 
@@ -83,6 +85,7 @@ class ConverterTests(unittest.TestCase):
             self.assertNotIn(bad, joined)
         self.assertEqual(sum("dup\\.com" in f for f in self.filters), 1)
         self.assertFalse(any(not f.isascii() for f in self.filters))
+        self.assertFalse(any("|" in f or "{" in f for f in self.filters))
 
     def test_exceptions(self):
         kinds = [e["trigger"] for e in self.res.exceptions]

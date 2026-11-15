@@ -93,6 +93,9 @@ def pattern_to_regex(pattern: str) -> str | None:
     pattern = pattern.strip("*") if not host_anchor else pattern.rstrip("*")
     if not pattern or not _ascii(pattern):
         return None
+    # WebKit non accetta | (nemmeno con escape) né quantificatori {}: regola scartata.
+    if any(c in pattern for c in "|{}"):
+        return None
     if len(pattern.replace("^", "").replace("*", "")) < 3:
         return None
 
