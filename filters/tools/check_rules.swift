@@ -33,7 +33,9 @@ func compileError(_ rules: [Any]) async -> String? {
 
 @MainActor
 func badIndices(_ rules: [Any], offset: Int) async -> [Int] {
-    if rules.isEmpty || (await compileError(rules)) == nil { return [] }
+    if rules.isEmpty { return [] }
+    let error = await compileError(rules)
+    if error == nil { return [] }
     if rules.count == 1 { return [offset] }
     let mid = rules.count / 2
     return await badIndices(Array(rules[..<mid]), offset: offset)
