@@ -62,7 +62,9 @@ final class BrowserTab {
     func goBack() { webView.goBack() }
     func goForward() { webView.goForward() }
     func reload() { webView.reload() }
-    func reloadOrStop() { isLoading ? webView.stopLoading() : webView.reload() }
+    func reloadOrStop() {
+        if isLoading { webView.stopLoading() } else { webView.reload() }
+    }
 
     func togglePictureInPicture(completion: @escaping (PiPResult) -> Void) {
         MediaBridge.shared.togglePictureInPicture(in: webView, completion: completion)
