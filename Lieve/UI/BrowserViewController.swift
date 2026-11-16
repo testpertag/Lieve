@@ -6,15 +6,15 @@ import WebKit
 /// menu flottante e avvisi. I fogli (indirizzo, impostazioni) restano in SwiftUI,
 /// presentati come controller separati.
 final class BrowserViewController: UIViewController {
-    private let tab: BrowserTab
+    private let browserTab: BrowserTab
     private let progressView = UIProgressView(progressViewStyle: .bar)
     private var menu: FloatingMenu?
     private let toast = UILabel()
     private let toastContainer = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
     private var toastTask: Task<Void, Never>?
 
-    init(tab: BrowserTab) {
-        self.tab = tab
+    init(browserTab: BrowserTab) {
+        self.browserTab = browserTab
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -25,7 +25,7 @@ final class BrowserViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
 
-        let webView = tab.webView
+        let webView = browserTab.webView
         webView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(webView)
         NSLayoutConstraint.activate([
@@ -53,7 +53,7 @@ final class BrowserViewController: UIViewController {
         menu.onAction = { [weak self] action in self?.handle(action) }
         self.menu = menu
 
-        tab.onChange = { [weak self] in self?.refresh() }
+        browserTab.onChange = { [weak self] in self?.refresh() }
         MediaState.shared.onChange = { [weak self] in self?.refresh() }
         refresh()
     }
@@ -66,19 +66,19 @@ final class BrowserViewController: UIViewController {
     // MARK: - Stato
 
     private func refresh() {
-        menu?.update(canGoBack: tab.canGoBack, canGoForward: tab.canGoForward,
-                     isLoading: tab.isLoading, videoPlaying: MediaState.shared.videoPlaying)
-        progressView.setProgress(Float(tab.progress), animated: tab.isLoading)
-        UIView.animate(withDuration: 0.2) { self.progressView.alpha = self.tab.isLoading ? 1 : 0 }
+        menu?.update(canGoBack: browserTab.canGoBack, canGoForward: browserTab.canGoForward,
+                     isLoading: browserTab.isLoading, videoPlaying: MediaState.shared.videoPlaying)
+        progressView.setProgress(Float(browserTab.progress), animated: browserTab.isLoading)
+        UIView.animate(withDuration: 0.2) { self.progressView.alpha = self.browserTab.isLoading ? 1 : 0 }
     }
 
     // MARK: - Azioni
 
     private func handle(_ action: FloatingMenu.Action) {
         switch action {
-        case .back: tab.goBack()
-        case .forward: tab.goForward()
-        case .reload: tab.reloadOrStop()
+        case .back: browserTab.goBack()
+        case .forward: browserTab.goForward()
+        case .reload: browserTab.reloadOrStop()
         case .address: presentAddress()
         case .pip: togglePiP()
         case .settings: presentSettings()
@@ -86,7 +86,7 @@ final class BrowserViewController: UIViewController {
     }
 
     private func presentAddress() {
-        let controller = UIHostingController(rootView: AddressSheet(tab: tab) { [weak self] in
+        let controller = UIHostingController(rootView: AddressSheet(tab: browserTab) { [weak self] in
             self?.dismiss(animated: true)
         })
         if let sheet = controller.sheetPresentationController {
@@ -97,14 +97,14 @@ final class BrowserViewController: UIViewController {
     }
 
     private func presentSettings() {
-        let controller = UIHostingController(rootView: SettingsSheet(tab: tab) { [weak self] in
+        let controller = UIHostingController(rootView: SettingsSheet(tab: browserTab) { [weak self] in
             self?.dismiss(animated: true)
         })
         present(controller, animated: true)
     }
 
     private func togglePiP() {
-        tab.togglePictureInPicture { [weak self] result in
+        browserTab.togglePictureInPicture { [weak self] result in
             switch result {
             case .entered, .exited, .skip: break
             case .noVideo: self?.showToast("Nessun video nella pagina")

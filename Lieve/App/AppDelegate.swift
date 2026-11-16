@@ -32,7 +32,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.tab = tab
 
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = BrowserViewController(tab: tab)
+        window.rootViewController = BrowserViewController(browserTab: tab)
         window.makeKeyAndVisible()
         self.window = window
 
