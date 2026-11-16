@@ -2,12 +2,13 @@ import SwiftUI
 
 struct AddressSheet: View {
     let tab: BrowserTab
-    @Environment(\.dismiss) private var dismiss
+    let close: () -> Void
     @State private var text: String
     @FocusState private var focused: Bool
 
-    init(tab: BrowserTab) {
+    init(tab: BrowserTab, close: @escaping () -> Void) {
         self.tab = tab
+        self.close = close
         _text = State(initialValue: tab.url?.absoluteString ?? "")
     }
 
@@ -33,7 +34,7 @@ struct AddressSheet: View {
                 .padding(10)
                 .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 12))
 
-                Button("Annulla") { dismiss() }
+                Button("Annulla") { close() }
             }
             HStack {
                 if !tab.title.isEmpty {
@@ -42,7 +43,7 @@ struct AddressSheet: View {
                 Spacer()
                 Button {
                     tab.goHome()
-                    dismiss()
+                    close()
                 } label: {
                     Label("YouTube", systemImage: "house")
                         .font(.footnote)
@@ -50,13 +51,11 @@ struct AddressSheet: View {
             }
         }
         .padding()
-        .presentationDetents([.height(150)])
-        .presentationDragIndicator(.visible)
         .onAppear { focused = true }
     }
 
     private func go() {
         tab.load(text)
-        dismiss()
+        close()
     }
 }

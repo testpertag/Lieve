@@ -7,8 +7,15 @@ import Observation
 @Observable
 final class MediaState {
     static let shared = MediaState()
-    var videoPlaying = false
+    private(set) var videoPlaying = false
+    @ObservationIgnored var onChange: (() -> Void)?
     private init() {}
+
+    func setVideoPlaying(_ playing: Bool) {
+        guard playing != videoPlaying else { return }
+        videoPlaying = playing
+        onChange?()
+    }
 }
 
 enum PiPResult: String {
@@ -105,7 +112,7 @@ final class MediaBridge: NSObject, WKScriptMessageHandler {
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         guard let body = message.body as? [String: Any], let playing = body["playing"] as? Bool else { return }
-        if MediaState.shared.videoPlaying != playing { MediaState.shared.videoPlaying = playing }
+        MediaState.shared.setVideoPlaying(playing)
     }
 
     // MARK: - Script (mondo isolato "lieve", tutti i siti, frame principale)

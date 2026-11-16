@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SettingsSheet: View {
     let tab: BrowserTab
-    @Environment(\.dismiss) private var dismiss
+    let close: () -> Void
     @AppStorage(Preferences.adBlockKey) private var adBlock = true
     @AppStorage(Preferences.backgroundPlayKey) private var backgroundPlay = true
     @AppStorage(Preferences.autoPiPKey) private var autoPiP = false
@@ -50,7 +50,7 @@ struct SettingsSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Fine") { dismiss() }
+                    Button("Fine") { close() }
                 }
             }
             .onChange(of: adBlock) { changed = true }

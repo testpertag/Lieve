@@ -30,7 +30,9 @@ targets:
         buildPhase: resources
       - path: Lieve/Resources/PrivacyInfo.xcprivacy
         buildPhase: resources
-    scheme: {}
+    scheme:
+      testTargets:
+        - LieveUITests
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.example.lieve   # sovrascritto dalla CI con la variabile BUNDLE_ID
@@ -64,3 +66,16 @@ targets:
         # Aggiornamento filtri: URL del pacchetto e chiave pubblica Ed25519 (vuoti = disattivato).
         LieveFiltersURL: $(LIEVE_FILTERS_URL)
         LieveFiltersPublicKey: $(LIEVE_FILTERS_PUBKEY)
+
+  LieveUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: LieveUITests
+    dependencies:
+      - target: Lieve
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.lieve.uitests
+        TEST_TARGET_NAME: Lieve

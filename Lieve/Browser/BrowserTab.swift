@@ -19,6 +19,8 @@ final class BrowserTab {
     private let initialURL: URL
     @ObservationIgnored private var started = false
     @ObservationIgnored private var observations: [NSKeyValueObservation] = []
+    /// Notifica per l'interfaccia UIKit: chiamata dopo ogni cambio di stato.
+    @ObservationIgnored var onChange: (() -> Void)?
 
     init(url: URL) {
         let controller = WKUserContentController()
@@ -38,7 +40,6 @@ final class BrowserTab {
         self.initialURL = url
         webView.navigationDelegate = delegate
         webView.uiDelegate = delegate
-        delegate.attach(to: webView)
         MediaBridge.shared.register(webView)
 
         startObserving()
@@ -93,6 +94,7 @@ final class BrowserTab {
                 guard let self else { return }
                 let value = webView[keyPath: keyPath]
                 apply(self, value)
+                self.onChange?()
             }
         }
     }
