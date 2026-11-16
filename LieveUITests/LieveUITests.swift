@@ -52,7 +52,7 @@ final class LieveUITests: XCTestCase {
         app.buttons["Fine"].tap(); sleep(1); assertAlive("chiusura impostazioni")
 
         app.buttons["Chiudi menu"].tap(); sleep(1); assertAlive("chiusura menu")
-        menu.press(forDuration: 0.2, thenDragTo: point(0.1, 0.4)); sleep(1); assertAlive("trascinamento menu")
+        menu.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).press(forDuration: 0.2, thenDragTo: point(0.1, 0.4)); sleep(1); assertAlive("trascinamento menu")
         snapshot("6-menu-spostato")
 
         point(0.5, 0.7).tap(); sleep(1)
