@@ -84,17 +84,26 @@ final class FloatingMenu: NSObject {
         bubbleButton.tintColor = .label
         bubbleButton.accessibilityLabel = "Menu"
         bubbleButton.addTarget(self, action: #selector(toggle), for: .touchUpInside)
-        bubbleButton.frame = CGRect(x: 0, y: 0, width: bubbleSize, height: bubbleSize)
-        bubbleButton.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        bubble.contentView.addSubview(bubbleButton)
+        pin(bubbleButton, to: bubble.contentView)
     }
 
     private func buildAirPlayBubble() {
         airPlayBubble.layer.cornerRadius = buttonSize / 2
         configure(airPlayPicker)
-        airPlayPicker.frame = CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize)
-        airPlayPicker.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        airPlayBubble.contentView.addSubview(airPlayPicker)
+        pin(airPlayPicker, to: airPlayBubble.contentView)
+    }
+
+    /// Vincoli espliciti: con l'autoresizing la vista cresceva insieme al contenitore
+    /// partendo da dimensione zero, raddoppiando (pulsante più grande della bolla).
+    private func pin(_ view: UIView, to container: UIView) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(view)
+        NSLayoutConstraint.activate([
+            view.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+            view.topAnchor.constraint(equalTo: container.topAnchor),
+            view.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+        ])
     }
 
     private func configure(_ picker: AVRoutePickerView) {
