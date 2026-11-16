@@ -28,7 +28,7 @@ jobs:
   # 1) Build NON firmata → Lieve-unsigned.ipa da firmare con Sideloadly
   # ------------------------------------------------------------------
   unsigned:
-    runs-on: macos-26
+    runs-on: ${{ vars.MACOS_RUNNER || 'macos-26-intel' }}
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
@@ -96,7 +96,7 @@ jobs:
   testflight:
     if: github.event_name == 'workflow_dispatch' && inputs.testflight
     needs: unsigned
-    runs-on: macos-26
+    runs-on: ${{ vars.MACOS_RUNNER || 'macos-26-intel' }}
     timeout-minutes: 40
     env:
       TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
