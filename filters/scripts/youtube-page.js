@@ -125,9 +125,21 @@ if (LIEVE.adblock) {
 //    su JSON.stringify): clientScreen CHANNEL oppure isInlinePlaybackNoAd.
 //    LIEVE.strategy: "channel" | "inline" | "both" | "prune" (solo rimozione).
 // ---------------------------------------------------------------------------
-if (LIEVE.adblock && LIEVE.strategy !== 'prune') {
-  const S = LIEVE.strategy || 'channel';
+// Strategia corrente: può cambiare da sola se un video resta bloccato (sezione 6).
+let strategy = LIEVE.strategy || 'channel';
+const store = (() => { try { return window.sessionStorage; } catch (_) { return null; } })();
+try {
+  // Tecnica scelta dal recupero automatico prima di una ricarica (valida 10 minuti).
+  const saved = store && JSON.parse(store.getItem('lieve.s') || 'null');
+  if (saved && Date.now() - saved.t < 600000 && LIEVE.strategy !== 'prune') strategy = saved.s;
+} catch (_) {}
+const nativeSetTimeout = window.setTimeout;
+const nativeClearTimeout = window.clearTimeout;
+
+if (LIEVE.adblock) {
   const editPlayerRequest = (o) => {
+    const S = strategy;
+    if (S === 'prune') return;
     if (!o || typeof o !== 'object') return;
     const pc = o.playbackContext;
     const cpc = pc && pc.contentPlaybackContext;
@@ -198,4 +210,64 @@ if (LIEVE.adblock) {
       if (e.target && e.target.tagName === 'VIDEO') attach(e.target);
     }, true);
   }
+}
+
+// ---------------------------------------------------------------------------
+// 6) Recupero automatico: se dopo l'apertura il video resta fermo (penalità di
+//    YouTube), lo ricarica con la tecnica successiva; al secondo tentativo ricarica
+//    la pagina. È ciò che succede a mano spegnendo e riaccendendo il blocco.
+//    Un solo timer per video, nessun polling. Stessa idea dello script uBO
+//    del 17/11/2026 (loadVideoById con un'altra variante della richiesta).
+// ---------------------------------------------------------------------------
+if (LIEVE.adblock) {
+  const ORDER = ['channel', 'inline', 'prune'];
+  const WAIT_MS = 7000;
+  let timer = 0, retries = 0, lastId = '';
+
+  const currentId = () => {
+    try { return new URLSearchParams(location.search).get('v') || ''; } catch (_) { return ''; }
+  };
+
+  const isStuck = (video) => {
+    if (!video) return true;
+    if (video.paused && video.currentTime > 0.5) return false;   // messo in pausa dall'utente
+    return video.readyState < 3 || video.currentTime < 0.5;
+  };
+
+  const check = () => {
+    timer = 0;
+    if (!location.pathname.startsWith('/watch')) return;
+    const player = document.getElementById('movie_player');
+    const video = player ? player.querySelector('video') : document.querySelector('video');
+    if (player && player.classList.contains('ad-showing')) { arm(); return; }
+    if (!isStuck(video) || retries >= 2) return;
+    retries++;
+    strategy = ORDER[(ORDER.indexOf(strategy) + 1) % ORDER.length];
+    const id = currentId();
+    if (retries === 1 && player && typeof player.loadVideoById === 'function' && id) {
+      player.loadVideoById(id, video ? Math.floor(video.currentTime) : 0);
+      arm();
+    } else {
+      // Al massimo una ricarica per video ogni 2 minuti: mai un ciclo di ricariche.
+      try {
+        const last = JSON.parse(store.getItem('lieve.r') || 'null');
+        if (last && last.id === id && Date.now() - last.t < 120000) return;
+        store.setItem('lieve.r', JSON.stringify({ id, t: Date.now() }));
+        store.setItem('lieve.s', JSON.stringify({ s: strategy, t: Date.now() }));
+      } catch (_) {}
+      location.reload();
+    }
+  };
+
+  const arm = () => {
+    if (timer) nativeClearTimeout(timer);
+    timer = nativeSetTimeout(check, WAIT_MS);
+  };
+
+  document.addEventListener('loadstart', (e) => {
+    if (!e.target || e.target.tagName !== 'VIDEO') return;
+    const id = currentId();
+    if (id !== lastId) { lastId = id; retries = 0; }
+    arm();
+  }, true);
 }

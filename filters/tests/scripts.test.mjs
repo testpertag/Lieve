@@ -23,6 +23,7 @@ function makeContext(hostname, cfg) {
   Document.prototype.addEventListener = function addEventListener(type, fn) { docListeners.push(type); };
   const docListeners = [];
   const timers = [];
+  const pending = [];
   class XMLHttpRequest { constructor() { this.responseType = ''; this._r = null; } }
   Object.defineProperty(XMLHttpRequest.prototype, 'response', { get() { return this._r; }, configurable: true, enumerable: true });
 
@@ -30,7 +31,9 @@ function makeContext(hostname, cfg) {
     Document, XMLHttpRequest, Response, location: { hostname },
     document: new Document(),
     addEventListener: (type, fn, capture) => listeners.push({ type, fn, capture }),
-    setTimeout: function setTimeout(fn, delay) { timers.push(delay); return timers.length; },
+    setTimeout: function setTimeout(fn, delay) { timers.push(delay); pending.push(fn); return timers.length; },
+    clearTimeout: function clearTimeout() {},
+    __pending: pending,
     __listeners: listeners,
     __timers: timers,
     __docListeners: docListeners,
@@ -119,6 +122,67 @@ for (const [strategy, screen, inline] of [['channel', 'CHANNEL', undefined], ['i
   assert.deepEqual(ctx.__timers, [17, 17000, 5000]);
   // Salto spot: ascoltatori sui media registrati
   assert.ok(ctx.__docListeners.includes('playing') && ctx.__docListeners.includes('loadedmetadata'));
+}
+
+// --- 1c. Recupero automatico di un video bloccato ------------------------------
+{
+  const ctx = makeContext('m.youtube.com');
+  ctx.location.pathname = '/watch';
+  ctx.location.search = '?v=abc';
+  const loaded = [];
+  let reloads = 0;
+  ctx.location.reload = () => { reloads++; };
+  const video = { tagName: 'VIDEO', paused: true, currentTime: 0, readyState: 1 };
+  const player = { classList: { contains: () => false }, querySelector: () => video,
+                   loadVideoById: (id, t) => loaded.push([id, t]) };
+  ctx.document.getElementById = () => player;
+  const storage = {};
+  ctx.sessionStorage = { getItem: (k) => storage[k] ?? null, setItem: (k, v) => { storage[k] = v; } };
+  const docHandlers = {};
+  Object.getPrototypeOf(ctx.document).addEventListener = function (type, fn) { (docHandlers[type] ||= []).push(fn); };
+  ctx.URLSearchParams = URLSearchParams;
+  run(ctx, 'youtube-page', { adblock: true, background: true, strategy: 'channel' });
+  const req = '({ context: { client: {} }, playbackContext: { contentPlaybackContext: {} } })';
+  const fireLoadstart = () => docHandlers.loadstart.forEach((fn) => fn({ target: video }));
+  const runLastTimer = () => ctx.__pending[ctx.__pending.length - 1]();
+
+  fireLoadstart();
+  assert.equal(ctx.__timers[ctx.__timers.length - 1], 7000);
+  runLastTimer();                                   // fermo → nuova tecnica + loadVideoById
+  assert.deepEqual(loaded, [['abc', 0]]);
+  assert.equal(JSON.parse(vm.runInContext(`JSON.stringify(${req})`, ctx)).playbackContext.contentPlaybackContext.isInlinePlaybackNoAd, true);
+  runLastTimer();                                   // ancora fermo → ricarica pagina
+  assert.equal(reloads, 1);
+  assert.equal(JSON.parse(storage['lieve.s']).s, 'prune');
+
+  // Dopo la ricarica: niente secondo ricaricamento entro 2 minuti per lo stesso video
+  const ctx2 = makeContext('m.youtube.com');
+  Object.assign(ctx2.location, { pathname: '/watch', search: '?v=abc', reload: () => { reloads++; } });
+  ctx2.sessionStorage = ctx.sessionStorage;
+  ctx2.document.getElementById = () => player;
+  const h2 = {};
+  Object.getPrototypeOf(ctx2.document).addEventListener = function (type, fn) { (h2[type] ||= []).push(fn); };
+  ctx2.URLSearchParams = URLSearchParams;
+  run(ctx2, 'youtube-page', { adblock: true, background: true, strategy: 'channel' });
+  h2.loadstart.forEach((fn) => fn({ target: video }));
+  ctx2.__pending[ctx2.__pending.length - 1]();     // loadVideoById
+  ctx2.__pending[ctx2.__pending.length - 1]();     // avrebbe ricaricato: bloccato dal limite
+  assert.equal(reloads, 1);
+
+  // Video che parte: nessun intervento
+  const ctx3 = makeContext('m.youtube.com');
+  Object.assign(ctx3.location, { pathname: '/watch', search: '?v=zzz', reload: () => { reloads++; } });
+  const playing = { tagName: 'VIDEO', paused: false, currentTime: 3, readyState: 4 };
+  const loaded3 = [];
+  ctx3.document.getElementById = () => ({ classList: { contains: () => false }, querySelector: () => playing, loadVideoById: (...a) => loaded3.push(a) });
+  const h3 = {};
+  Object.getPrototypeOf(ctx3.document).addEventListener = function (type, fn) { (h3[type] ||= []).push(fn); };
+  ctx3.URLSearchParams = URLSearchParams;
+  run(ctx3, 'youtube-page', { adblock: true, background: true, strategy: 'channel' });
+  h3.loadstart.forEach((fn) => fn({ target: playing }));
+  ctx3.__pending[ctx3.__pending.length - 1]();
+  assert.equal(loaded3.length, 0);
+  assert.equal(reloads, 1);
 }
 
 // --- 2. Opzioni disattivate: nessuna modifica ---------------------------------
