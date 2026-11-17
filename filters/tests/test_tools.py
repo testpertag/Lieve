@@ -144,3 +144,32 @@ class PackTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class YouTubeExemptionTests(unittest.TestCase):
+    """Le liste generiche non devono bloccare nulla su YouTube (causa di video che non partono)."""
+
+    def test_remote_lists_ignore_youtube(self):
+        import re as _re
+        import tempfile as _tf
+        with _tf.TemporaryDirectory() as d:
+            cache = Path(d)
+            text = "||youtube.com/api/stats/qoe\n||tracker.example^\n"
+            for url in ["https://easylist.to/easylist/easylist.txt", "https://easylist.to/easylist/easyprivacy.txt"]:
+                (cache / (_re.sub(r"[^a-z0-9]+", "_", url.lower()) + ".txt")).write_text(text)
+            payload = b.build_payload(offline=False, cache=cache, from_cache=True)
+        remote = [json.loads(r["json"]) for r in payload["ruleLists"] if r["id"] != "youtube"]
+        self.assertTrue(remote)
+        for rules in remote:
+            qoe = next(i for i, r in enumerate(rules) if "qoe" in r["trigger"]["url-filter"])
+            later = rules[qoe + 1:]
+            # un'eccezione successiva copre l'URL qoe di YouTube...
+            self.assertTrue(any(r["action"]["type"] == "ignore-previous-rules"
+                                and re.search(r["trigger"]["url-filter"], "https://www.youtube.com/api/stats/qoe?x=1")
+                                and "if-domain" not in r["trigger"] for r in later))
+            # ...e l'intera pagina YouTube
+            self.assertTrue(any(r["trigger"].get("if-domain") == ["*youtube.com"] for r in later))
+            # mentre un tracker qualsiasi resta bloccato altrove
+            self.assertTrue(any(r["action"]["type"] == "block" and "tracker" in r["trigger"]["url-filter"] for r in rules))
+        yt = json.loads(next(r["json"] for r in payload["ruleLists"] if r["id"] == "youtube"))
+        self.assertTrue(all(r["action"]["type"] == "css-display-none" for r in yt))

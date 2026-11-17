@@ -121,6 +121,13 @@ def build_payload(offline: bool, cache: Path | None, exclude: dict | None = None
             if text is None:
                 continue
             res = abp2webkit.convert(text, remote.get("cosmetic", "specific"))
+            # Le liste generiche non agiscono sulle pagine YouTube né sulle sue risorse:
+            # alcune loro regole (es. /api/stats/qoe in EasyPrivacy) bloccano l'avvio dei video.
+            for domain in manifest.get("remoteListsExcludedDomains", []):
+                res.exceptions.append({"trigger": {"url-filter": ".*", "if-domain": ["*" + domain]},
+                                       "action": {"type": "ignore-previous-rules"}})
+                res.exceptions.append({"trigger": {"url-filter": abp2webkit.HOST_PREFIX + domain.replace(".", "\\.") + "[:/]"},
+                                       "action": {"type": "ignore-previous-rules"}})
             chunks = abp2webkit.chunk(res, max_rules)
             print(f"  {remote['id']}: {len(res.blocks)} blocchi, {len(res.cosmetics)} cosmetici, "
                   f"{len(res.exceptions)} eccezioni, {res.skipped} scartate → {len(chunks)} liste")
