@@ -37,6 +37,7 @@ jobs:
         run: xcodebuild -version
 
       - name: Test, filtri e progetto
+        timeout-minutes: 12
         env:
           FILTERS_SIGNING_KEY: ${{ secrets.FILTERS_SIGNING_KEY }}
         run: bash ci/prepare.sh
@@ -110,6 +111,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Test, filtri e progetto
+        timeout-minutes: 12
         env:
           FILTERS_SIGNING_KEY: ${{ secrets.FILTERS_SIGNING_KEY }}
         run: bash ci/prepare.sh

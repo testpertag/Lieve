@@ -82,8 +82,16 @@ def fetch(url: str, cache: Path | None, from_cache: bool = False) -> str | None:
         return cached.read_text() if cached and cached.exists() else None
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "Lieve-filter-builder"})
-        with urllib.request.urlopen(req, timeout=60) as r:
-            text = r.read().decode("utf-8", "replace")
+        text = None
+        for attempt in range(3):  # tre tentativi brevi invece di un'attesa lunga
+            try:
+                with urllib.request.urlopen(req, timeout=25) as r:
+                    text = r.read().decode("utf-8", "replace")
+                break
+            except Exception as e:
+                print(f"  ! tentativo {attempt + 1} fallito per {url}: {e}", file=sys.stderr)
+        if text is None:
+            raise RuntimeError("download non riuscito")
         if cached:
             cached.parent.mkdir(parents=True, exist_ok=True)
             cached.write_text(text)
