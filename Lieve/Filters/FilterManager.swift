@@ -76,7 +76,8 @@ final class FilterManager {
         controller.removeAllContentRuleLists()
         MediaBridge.shared.install(in: controller)
 
-        let config = "{\"adblock\":\(Preferences.adBlock),\"background\":\(Preferences.backgroundPlay)}"
+        let config = "{\"adblock\":\(Preferences.adBlock),\"background\":\(Preferences.backgroundPlay),"
+            + "\"strategy\":\"\(Preferences.adStrategy)\"}"
         for script in index?.scripts ?? [] {
             let world: WKContentWorld = script.world == "page" ? .page : .lieve
             let source = script.source.replacingOccurrences(of: "__LIEVE_CFG__", with: config)

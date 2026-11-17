@@ -12,6 +12,9 @@ final class BrowserViewController: UIViewController {
     private let toast = UILabel()
     private let toastContainer = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
     private var toastTask: Task<Void, Never>?
+    #if DEBUG
+    private let metricLabel = UILabel()
+    #endif
 
     init(browserTab: BrowserTab) {
         self.browserTab = browserTab
@@ -48,6 +51,14 @@ final class BrowserViewController: UIViewController {
         ])
 
         buildToast()
+        #if DEBUG
+        metricLabel.accessibilityIdentifier = "lieve.metric"
+        metricLabel.font = .systemFont(ofSize: 9)
+        metricLabel.textColor = .systemGreen
+        metricLabel.frame = CGRect(x: 4, y: 60, width: 160, height: 12)
+        metricLabel.isUserInteractionEnabled = false
+        view.addSubview(metricLabel)
+        #endif
 
         let menu = FloatingMenu(host: view)
         menu.onAction = { [weak self] action in self?.handle(action) }
@@ -70,6 +81,9 @@ final class BrowserViewController: UIViewController {
                      isLoading: browserTab.isLoading, videoPlaying: MediaState.shared.videoPlaying)
         progressView.setProgress(Float(browserTab.progress), animated: browserTab.isLoading)
         UIView.animate(withDuration: 0.2) { self.progressView.alpha = self.browserTab.isLoading ? 1 : 0 }
+        #if DEBUG
+        metricLabel.text = MediaState.shared.startMetric.map { "start \($0)" } ?? "start -"
+        #endif
     }
 
     // MARK: - Azioni

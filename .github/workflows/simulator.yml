@@ -8,6 +8,10 @@ on:
     branches: [main]
     paths: ["Lieve/**", "LieveUITests/**", "project.yml", ".github/workflows/simulator.yml"]
   workflow_dispatch:
+    inputs:
+      only:
+        description: "Esegui solo questa classe di test (es. StartTimeTests)"
+        required: false
 
 permissions:
   contents: write
@@ -19,7 +23,7 @@ concurrency:
 jobs:
   ui-test:
     runs-on: ${{ vars.MACOS_RUNNER || 'macos-26-intel' }}
-    timeout-minutes: 40
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 
@@ -40,9 +44,11 @@ jobs:
           set +e
           xcodebuild test -project Lieve.xcodeproj -scheme Lieve -configuration Debug \
             -destination "id=$UDID" -derivedDataPath build -resultBundlePath "$RUNNER_TEMP/ui.xcresult" \
-            CODE_SIGNING_ALLOWED=NO > test.log 2>&1
+            CODE_SIGNING_ALLOWED=NO ${{ inputs.only && format('-only-testing:LieveUITests/{0}', inputs.only) || '' }} > test.log 2>&1
           STATUS=$?
-          grep -E "error:|Test Case|L'app si è chiusa|\*\* TEST|crash" test.log | sort -u | head -40
+          grep -E "error:|Test Case|L'app si è chiusa|\*\* TEST|crash|METRIC|MINIPLAYER" test.log | sort -u | head -60
+          echo "===== Tempi di avvio"
+          grep -E "^METRIC|METRIC " test.log | sed 's/.*METRIC/METRIC/' | sort -u
           exit $STATUS
 
       - name: Rapporti di crash

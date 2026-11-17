@@ -20,6 +20,9 @@ function makeContext(hostname, cfg) {
   Object.defineProperty(Document.prototype, 'visibilityState', { get() { return 'hidden'; }, configurable: true, enumerable: true });
   Object.defineProperty(Document.prototype, 'webkitVisibilityState', { get() { return 'hidden'; }, configurable: true, enumerable: true });
   Document.prototype.hasFocus = function hasFocus() { return false; };
+  Document.prototype.addEventListener = function addEventListener(type, fn) { docListeners.push(type); };
+  const docListeners = [];
+  const timers = [];
   class XMLHttpRequest { constructor() { this.responseType = ''; this._r = null; } }
   Object.defineProperty(XMLHttpRequest.prototype, 'response', { get() { return this._r; }, configurable: true, enumerable: true });
 
@@ -27,7 +30,10 @@ function makeContext(hostname, cfg) {
     Document, XMLHttpRequest, Response, location: { hostname },
     document: new Document(),
     addEventListener: (type, fn, capture) => listeners.push({ type, fn, capture }),
+    setTimeout: function setTimeout(fn, delay) { timers.push(delay); return timers.length; },
     __listeners: listeners,
+    __timers: timers,
+    __docListeners: docListeners,
   };
   ctx.window = ctx;
   vm.createContext(ctx);
@@ -98,12 +104,33 @@ const run = (ctx, id, cfg) => vm.runInContext(script(id).replace('__LIEVE_CFG__'
   assert.match(vm.runInContext('Function.prototype.toString.call(JSON.parse)', ctx), /\[native code\]/);
 }
 
+// --- 1b. Richiesta del player "senza annunci" e timer dell'attesa --------------
+const playerRequest = '({ context: { client: { clientName: "MWEB", clientScreen: "WATCH" } }, playbackContext: { contentPlaybackContext: { vis: 0 } }, videoId: "x" })';
+for (const [strategy, screen, inline] of [['channel', 'CHANNEL', undefined], ['inline', 'WATCH', true], ['both', 'CHANNEL', true], ['prune', 'WATCH', undefined]]) {
+  const ctx = makeContext('m.youtube.com');
+  run(ctx, 'youtube-page', { adblock: true, background: true, strategy });
+  const sent = JSON.parse(vm.runInContext(`JSON.stringify(${playerRequest})`, ctx));
+  assert.equal(sent.context.client.clientScreen, screen, strategy);
+  assert.equal(sent.playbackContext.contentPlaybackContext.isInlinePlaybackNoAd, inline, strategy);
+  // Oggetti qualsiasi: invariati
+  assert.equal(vm.runInContext('JSON.stringify({ a: 1, context: { client: {} } })', ctx), '{"a":1,"context":{"client":{}}}');
+  // Timer: solo quello da 17 s con funzione nativa viene accelerato
+  vm.runInContext('setTimeout(Math.max, 17000); setTimeout(() => 1, 17000); setTimeout(Math.max, 5000);', ctx);
+  assert.deepEqual(ctx.__timers, [17, 17000, 5000]);
+  // Salto spot: ascoltatori sui media registrati
+  assert.ok(ctx.__docListeners.includes('playing') && ctx.__docListeners.includes('loadedmetadata'));
+}
+
 // --- 2. Opzioni disattivate: nessuna modifica ---------------------------------
 {
   const ctx = makeContext('m.youtube.com');
   run(ctx, 'youtube-page', { adblock: false, background: false });
   assert.equal(vm.runInContext('document.hidden', ctx), true);
   assert.deepEqual(vm.runInContext('JSON.parse(\'{"adSlots":[1]}\')', ctx), { adSlots: [1] });
+  vm.runInContext('setTimeout(Math.max, 17000)', ctx);
+  assert.deepEqual(ctx.__timers, [17000]);
+  const sent = JSON.parse(vm.runInContext(`JSON.stringify(${playerRequest})`, ctx));
+  assert.equal(sent.context.client.clientScreen, 'WATCH');
 }
 
 // --- 3. Altri siti: nessuna modifica ------------------------------------------

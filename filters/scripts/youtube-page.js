@@ -117,3 +117,85 @@ if (LIEVE.adblock) {
     } catch (_) {}
   }
 }
+
+// ---------------------------------------------------------------------------
+// 3) Richiesta "senza annunci": il server non programma spot, quindi non applica
+//    l'attesa punitiva che scatta quando gli spot vengono rimossi dopo l'arrivo.
+//    Stessa idea delle regole uBlock Origin del 17/11/2026 (trusted-edit-inbound-object
+//    su JSON.stringify): clientScreen CHANNEL oppure isInlinePlaybackNoAd.
+//    LIEVE.strategy: "channel" | "inline" | "both" | "prune" (solo rimozione).
+// ---------------------------------------------------------------------------
+if (LIEVE.adblock && LIEVE.strategy !== 'prune') {
+  const S = LIEVE.strategy || 'channel';
+  const editPlayerRequest = (o) => {
+    if (!o || typeof o !== 'object') return;
+    const pc = o.playbackContext;
+    const cpc = pc && pc.contentPlaybackContext;
+    const client = o.context && o.context.client;
+    if (!cpc || !client) return;                       // solo le richieste del player
+    if (S === 'channel' || S === 'both') client.clientScreen = 'CHANNEL';
+    if (S === 'inline' || S === 'both') cpc.isInlinePlaybackNoAd = true;
+  };
+  JSON.stringify = wrap(JSON.stringify, (t, self, args) => {
+    try { editPlayerRequest(args[0]); } catch (_) {}
+    return R.apply(t, self, args);
+  });
+}
+
+// ---------------------------------------------------------------------------
+// 4) Timer dell'attesa artificiale (uBO: nano-stb, [native code], 17000, 0.001).
+//    Si controlla prima il ritardo: costo nullo per tutti gli altri timer.
+// ---------------------------------------------------------------------------
+if (LIEVE.adblock) {
+  window.setTimeout = wrap(window.setTimeout, (t, self, args) => {
+    if (args[1] === 17000 && typeof args[0] === 'function'
+        && Function.prototype.toString.call(args[0]).includes('[native code]')) {
+      args[1] = 17;
+    }
+    return R.apply(t, self, args);
+  });
+}
+
+// ---------------------------------------------------------------------------
+// 5) Spot rimasti (anche inseriti nel flusso, "SSAP"): salto alla loro fine con
+//    l'API del player, più clic su "Salta". Solo su eventi, nessun polling.
+// ---------------------------------------------------------------------------
+if (LIEVE.adblock) {
+  const SKIP = '.ytp-skip-ad-button, .ytp-ad-skip-button, .ytp-ad-skip-button-modern, '
+             + '.ytp-ad-skip-button-container button, button.ytm-skip-ad-button';
+  const watched = new WeakSet();
+
+  const inAd = (p) => {
+    if (p.classList.contains('ad-showing')) return true;
+    try {
+      const st = typeof p.getStatsForNerds === 'function' ? p.getStatsForNerds() : null;
+      return !!(st && typeof st.debug_info === 'string' && st.debug_info.startsWith('SSAP, AD'));
+    } catch (_) { return false; }
+  };
+
+  const skip = (p) => {
+    if (!inAd(p)) return;
+    const btn = p.querySelector(SKIP);
+    if (btn) { btn.click(); return; }
+    try {
+      const pr = typeof p.getProgressState === 'function' ? p.getProgressState() : null;
+      if (pr && pr.duration > 0 && typeof p.seekTo === 'function') p.seekTo(pr.duration);
+    } catch (_) {}
+  };
+
+  const attach = (video) => {
+    const p = video.closest('#movie_player, .html5-video-player');
+    if (!p) return;
+    if (!watched.has(p)) {
+      watched.add(p);
+      new MutationObserver(() => skip(p)).observe(p, { attributes: true, attributeFilter: ['class'] });
+    }
+    skip(p);
+  };
+
+  for (const type of ['loadedmetadata', 'playing']) {
+    document.addEventListener(type, (e) => {
+      if (e.target && e.target.tagName === 'VIDEO') attach(e.target);
+    }, true);
+  }
+}

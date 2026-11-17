@@ -8,8 +8,15 @@ import Observation
 final class MediaState {
     static let shared = MediaState()
     private(set) var videoPlaying = false
+    /// Millisecondi tra l'apertura della pagina e l'avvio del contenuto (spot esclusi).
+    private(set) var startMetric: String?
     @ObservationIgnored var onChange: (() -> Void)?
     private init() {}
+
+    func setStartMetric(_ value: String) {
+        startMetric = value
+        onChange?()
+    }
 
     func setVideoPlaying(_ playing: Bool) {
         guard playing != videoPlaying else { return }
@@ -111,8 +118,15 @@ final class MediaBridge: NSObject, WKScriptMessageHandler {
     // MARK: - Messaggi dalla pagina
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        guard let body = message.body as? [String: Any], let playing = body["playing"] as? Bool else { return }
-        MediaState.shared.setVideoPlaying(playing)
+        guard let body = message.body as? [String: Any] else { return }
+        if let playing = body["playing"] as? Bool { MediaState.shared.setVideoPlaying(playing) }
+        if let ms = body["startMs"] as? Int {
+            let ads = (body["adsSeen"] as? Bool) == true ? "ads" : "noads"
+            MediaState.shared.setStartMetric("\(ms) \(ads)")
+            #if DEBUG
+            print("LIEVE_METRIC start=\(ms)ms \(ads) strategy=\(Preferences.adStrategy) adblock=\(Preferences.adBlock)")
+            #endif
+        }
     }
 
     // MARK: - Script (mondo isolato "lieve", tutti i siti, frame principale)
@@ -134,8 +148,25 @@ final class MediaBridge: NSObject, WKScriptMessageHandler {
         try { const p = v.play(); if (p && p.catch) p.catch(() => {}); } catch (_) {}
       };
 
+      // Tempo di avvio del contenuto (spot esclusi): misurato una volta per pagina.
+      const t0 = performance.now();
+      let measured = false, adsSeen = false;
+      const inAd = (v) => {
+        const p = v.closest('#movie_player, .html5-video-player');
+        return !!(p && p.classList.contains('ad-showing'));
+      };
+      const measure = (v) => {
+        if (measured) return;
+        if (inAd(v)) { adsSeen = true; return; }
+        measured = true;
+        post({ startMs: Math.round(performance.now() - t0), adsSeen });
+      };
+
       document.addEventListener('playing', (e) => {
-        if (e.target instanceof HTMLVideoElement) { current = e.target; report(); }
+        if (e.target instanceof HTMLVideoElement) { current = e.target; report(); measure(e.target); }
+      }, true);
+      document.addEventListener('timeupdate', (e) => {
+        if (!measured && e.target instanceof HTMLVideoElement && !e.target.paused) measure(e.target);
       }, true);
 
       document.addEventListener('pause', (e) => {

@@ -11,9 +11,11 @@ const source = raw.split('\n').map((l) => l.replace(/^ {4}/, '')).join('\n');
 function setup() {
   const listeners = {};
   const posts = [];
+  const metrics = [];
   let now = 1_000_000;
   class HTMLMediaElement {
-    constructor() { this.paused = true; this.ended = false; this.isConnected = true; this.readyState = 4; this.plays = 0; }
+    constructor() { this.paused = true; this.ended = false; this.isConnected = true; this.readyState = 4; this.plays = 0; this.inAd = false; }
+    closest() { return this.inAd ? { classList: { contains: (c) => c === 'ad-showing' } } : null; }
     play() { this.plays++; this.paused = false; return Promise.resolve(); }
   }
   class HTMLVideoElement extends HTMLMediaElement {
@@ -29,7 +31,8 @@ function setup() {
   const ctx = {
     document, HTMLMediaElement, HTMLVideoElement,
     Date: { now: () => now },
-    webkit: { messageHandlers: { lieveMedia: { postMessage: (m) => posts.push(m.playing) } } },
+    performance: { now: () => now },
+    webkit: { messageHandlers: { lieveMedia: { postMessage: (m) => { if ('playing' in m) posts.push(m.playing); else metrics.push(m); } } } },
     Object, Array, Promise,
   };
   ctx.window = ctx;
@@ -37,7 +40,7 @@ function setup() {
   vm.runInContext(source, ctx);
   const fire = (type, target) => (listeners[type] || []).forEach((fn) => fn({ target }));
   const video = () => { const v = new HTMLVideoElement(); videos.push(v); return v; };
-  return { ctx, fire, video, posts, tick: (ms) => { now += ms; }, api: () => vm.runInContext('window.__lieveMedia', ctx) };
+  return { ctx, fire, video, posts, metrics, tick: (ms) => { now += ms; }, api: () => vm.runInContext('window.__lieveMedia', ctx) };
 }
 
 // Riproduzione e pausa dell'utente → stato riportato all'app
@@ -117,6 +120,18 @@ function setup() {
   assert.strictEqual(t.api().autoPiP(), 'skip');
   v.paused = false; t.fire('playing', v);
   assert.strictEqual(t.api().autoPiP(), 'entered');
+}
+
+// Misura di avvio: esclude gli spot, una sola volta per pagina
+{
+  const t = setup();
+  const v = t.video();
+  t.tick(1200); v.inAd = true; v.paused = false; t.fire('playing', v);
+  assert.strictEqual(t.metrics.length, 0);
+  t.tick(800); v.inAd = false; t.fire('timeupdate', v);
+  assert.deepStrictEqual(JSON.parse(JSON.stringify(t.metrics)), [{ startMs: 2000, adsSeen: true }]);
+  t.fire('playing', v);
+  assert.strictEqual(t.metrics.length, 1);
 }
 
 // L'API non è modificabile dalla pagina
