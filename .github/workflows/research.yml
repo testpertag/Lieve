@@ -1,0 +1,21 @@
+name: Ricerca filtri
+
+# Mostra nel log le regole YouTube attuali di uBlock Origin (per aggiornare filters/ a mano).
+on:
+  workflow_dispatch:
+
+jobs:
+  ubo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Regole YouTube di uBlock Origin
+        run: |
+          for f in filters quick-fixes unbreak; do
+            echo "================ $f.txt"
+            curl -sSL "https://ublockorigin.github.io/uAssets/filters/$f.txt" -o "$f.txt"
+            grep -m1 "Last modified" "$f.txt" || true
+            grep -n -i "youtube" "$f.txt" | grep -v "^\s*!" | head -150
+          done
+      - name: Scriptlet usati (nomi)
+        run: |
+          cat filters.txt quick-fixes.txt | grep -i "youtube" | grep -o "+js([a-z0-9.-]*" | sort | uniq -c | sort -rn
