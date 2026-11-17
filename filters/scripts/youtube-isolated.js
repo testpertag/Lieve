@@ -26,3 +26,24 @@ if (LIEVE.background) {
   document.addEventListener('pause', stop, true);
   document.addEventListener('ended', stop, true);
 }
+
+// ---------------------------------------------------------------------------
+// Pulsante "Apri l'app" nella barra in alto (riserva se le regole CSS non bastano).
+// Osserva solo la barra superiore, non l'intera pagina.
+// ---------------------------------------------------------------------------
+{
+  const LABELS = new Set(['open app', 'apri app', "apri l'app", 'apri l’app', 'app öffnen', 'ouvrir l’app']);
+  const hideOpenApp = () => {
+    const bar = document.querySelector('ytm-mobile-topbar-renderer, header');
+    if (!bar) return;
+    for (const el of bar.querySelectorAll('a, button')) {
+      const text = (el.getAttribute('aria-label') || el.textContent || '').trim().toLowerCase();
+      if (LABELS.has(text)) (el.closest('ytm-button-renderer') || el).style.display = 'none';
+    }
+  };
+  document.addEventListener('DOMContentLoaded', () => {
+    hideOpenApp();
+    const bar = document.querySelector('ytm-mobile-topbar-renderer');
+    if (bar) new MutationObserver(hideOpenApp).observe(bar, { childList: true, subtree: true });
+  });
+}

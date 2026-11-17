@@ -11,5 +11,17 @@
       "type": "css-display-none",
       "selector": "ytm-promoted-sparkles-web-renderer, ytm-promoted-sparkles-text-search-renderer, ytm-promoted-video-renderer, ytm-companion-ad-renderer, ytm-companion-slot, ad-slot-renderer, ytm-statement-banner-renderer, ytm-mealbar-promo-renderer, ytm-paid-content-overlay-renderer, .ytp-ad-overlay-container, .ytp-ad-image-overlay, .ytp-featured-product, #player-ads, #masthead-ad, ytd-ad-slot-renderer, ytd-in-feed-ad-layout-renderer, ytd-promoted-sparkles-web-renderer, ytd-banner-promo-renderer, ytd-statement-banner-renderer, ytd-display-ad-renderer, ytd-compact-promoted-video-renderer, ytd-promoted-video-renderer, ytd-player-legacy-desktop-watch-ads-renderer"
     }
+  },
+  {
+    "trigger": {
+      "url-filter": ".*",
+      "if-domain": [
+        "*youtube.com"
+      ]
+    },
+    "action": {
+      "type": "css-display-none",
+      "selector": "ytm-open-app-button-renderer, .open-app-button, a[href*=\"youtube.app.goo.gl\"], a[href^=\"vnd.youtube:\"], a[href^=\"intent:\"], ytm-mobile-topbar-renderer [aria-label=\"Open App\"], ytm-mobile-topbar-renderer [aria-label=\"Apri app\"]"
+    }
   }
 ]

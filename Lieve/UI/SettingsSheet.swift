@@ -6,8 +6,17 @@ struct SettingsSheet: View {
     @AppStorage(Preferences.adBlockKey) private var adBlock = true
     @AppStorage(Preferences.backgroundPlayKey) private var backgroundPlay = true
     @AppStorage(Preferences.autoPiPKey) private var autoPiP = false
+    @AppStorage(Preferences.adStrategyKey) private var adStrategy = "channel"
     @State private var changed = false
     private var filters: FilterManager { FilterManager.shared }
+
+    /// "3.2 s" dalla misura del ponte media ("3200 noads" / "3200 ads").
+    private var lastStart: String {
+        guard let raw = MediaState.shared.startMetric,
+              let ms = Int(raw.split(separator: " ").first ?? "") else { return "—" }
+        let seconds = String(format: "%.1f s", Double(ms) / 1000)
+        return raw.hasSuffix("noads") ? seconds : seconds + " (con spot)"
+    }
 
     var body: some View {
         NavigationStack {
@@ -17,6 +26,21 @@ struct SettingsSheet: View {
                     Toggle("Riproduzione in background", isOn: $backgroundPlay)
                 } footer: {
                     Text("Le modifiche si applicano ricaricando la pagina.")
+                }
+
+                Section {
+                    Picker("Tecnica anti-pubblicità", selection: $adStrategy) {
+                        Text("Richiesta senza annunci").tag("channel")
+                        Text("Modalità anteprima").tag("inline")
+                        Text("Entrambe").tag("both")
+                        Text("Solo rimozione").tag("prune")
+                    }
+                    .disabled(!adBlock)
+                    LabeledContent("Ultimo avvio video", value: lastStart)
+                } header: {
+                    Text("YouTube")
+                } footer: {
+                    Text("Se i video partono lenti, prova un'altra tecnica: chiudi le impostazioni, apri qualche video e confronta il tempo.")
                 }
 
                 Section {
@@ -55,6 +79,7 @@ struct SettingsSheet: View {
             }
             .onChange(of: adBlock) { changed = true }
             .onChange(of: backgroundPlay) { changed = true }
+            .onChange(of: adStrategy) { changed = true }
             .onDisappear {
                 guard changed else { return }
                 filters.reapply()
