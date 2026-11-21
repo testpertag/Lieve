@@ -1,0 +1,1602 @@
+Command line invocation:
+    /Applications/Xcode_26.6.app/Contents/Developer/usr/bin/xcodebuild test -project Lieve.xcodeproj -scheme Lieve -configuration Debug -destination id=12FCFD0F-7FCF-463F-A605-132A7E18B5D5 -derivedDataPath build -resultBundlePath /Users/runner/work/_temp/ui.xcresult CODE_SIGNING_ALLOWED=NO
+
+Build settings from command line:
+    CODE_SIGNING_ALLOWED = NO
+
+Writing result bundle at path:
+	/Users/runner/work/_temp/ui.xcresult
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (2 targets)
+    Target 'LieveUITests' in project 'Lieve'
+        ➜ Explicit dependency on target 'Lieve' in project 'Lieve'
+    Target 'Lieve' in project 'Lieve' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode_26.6.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/runner/work/Lieve/Lieve/Lieve/Resources/Assets.xcassets
+
+ExecuteExternalTool /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+ExecuteExternalTool /Applications/Xcode_26.6.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+Build description signature: 2591f2acf1a9510082b48ed1feb21016
+Build description path: /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/XCBuildData/2591f2acf1a9510082b48ed1feb21016.xcbuilddata
+ClangStatCache /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk /Users/runner/work/Lieve/Lieve/build/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-f45c64a1807a658693f2a61704f17a36.sdkstatcache
+    cd /Users/runner/work/Lieve/Lieve/Lieve.xcodeproj
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -o /Users/runner/work/Lieve/Lieve/build/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-f45c64a1807a658693f2a61704f17a36.sdkstatcache
+
+CreateBuildDirectory /Users/runner/work/Lieve/Lieve/build/Build/Products
+    cd /Users/runner/work/Lieve/Lieve/Lieve.xcodeproj
+    builtin-create-build-directory /Users/runner/work/Lieve/Lieve/build/Build/Products
+
+CreateBuildDirectory /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex
+    cd /Users/runner/work/Lieve/Lieve/Lieve.xcodeproj
+    builtin-create-build-directory /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex
+
+CreateBuildDirectory /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator
+    cd /Users/runner/work/Lieve/Lieve/Lieve.xcodeproj
+    builtin-create-build-directory /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator
+
+CreateBuildDirectory /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/runner/work/Lieve/Lieve/Lieve.xcodeproj
+    builtin-create-build-directory /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve-22670fec99de82d9ef43247f132e2eaa-VFS-iphonesimulator/all-product-headers.yaml
+    cd /Users/runner/work/Lieve/Lieve/Lieve.xcodeproj
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve-22670fec99de82d9ef43247f132e2eaa-VFS-iphonesimulator/all-product-headers.yaml
+
+CreateBuildDirectory /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/runner/work/Lieve/Lieve/Lieve.xcodeproj
+    builtin-create-build-directory /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+    cd /Users/runner/work/Lieve/Lieve/Lieve.xcodeproj
+    builtin-create-build-directory /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/empty-LieveUITests.plist (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/empty-LieveUITests.plist
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/ProductTypeInfoPlistAdditions.plist (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/ProductTypeInfoPlistAdditions.plist
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests_const_extract_protocols.json (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.SwiftFileList (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.SwiftFileList
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.SwiftConstValuesFileList (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.LinkFileList (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.LinkFileList
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests-OutputFileMap.json (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests.hmap (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests.hmap
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests.DependencyStaticMetadataFileList (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests.DependencyMetadataFileList (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-project-headers.hmap (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-project-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-own-target-headers.hmap (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-generated-files.hmap (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-generated-files.hmap
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-all-target-headers.hmap (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-all-non-framework-target-headers.hmap (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve_const_extract_protocols.json (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.SwiftFileList (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.SwiftFileList
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.SwiftConstValuesFileList (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.LinkFileList (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.LinkFileList
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve-OutputFileMap.json (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve.hmap (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve.hmap
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve.DependencyStaticMetadataFileList (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve.DependencyMetadataFileList (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-project-headers.hmap (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-project-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-own-target-headers.hmap (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-generated-files.hmap (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-generated-files.hmap
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-all-target-headers.hmap (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-all-non-framework-target-headers.hmap (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-DebugDylibPath-normal-x86_64.txt (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-DebugDylibPath-normal-x86_64.txt
+
+WriteAuxiliaryFile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-DebugDylibInstallName-normal-x86_64.txt (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    write-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-DebugDylibInstallName-normal-x86_64.txt
+
+MkDir /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /bin/mkdir -p /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest
+
+MkDir /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /bin/mkdir -p /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app
+
+Ld /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/__preview.dylib normal (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -O0 -L/Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -F/Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -install_name @rpath/Lieve.debug.dylib -Xlinker -dead_strip -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve_dependency_info.dat -o /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/__preview.dylib
+
+MkDir /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_output/unthinned (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /bin/mkdir -p /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_output/unthinned
+
+MkDir /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_output/thinned (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /bin/mkdir -p /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_output/thinned
+
+GenerateAssetSymbols /Users/runner/work/Lieve/Lieve/Lieve/Resources/Assets.xcassets (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /Applications/Xcode_26.6.app/Contents/Developer/usr/bin/actool /Users/runner/work/Lieve/Lieve/Lieve/Resources/Assets.xcassets --compile /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app --output-format human-readable-text --notices --warnings --export-dependency-info /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_dependencies --output-partial-info-plist /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_generated_info.plist --app-icon AppIcon --compress-pngs --enable-on-demand-resources YES --development-region it --target-device iphone --target-device ipad --minimum-deployment-target 17.0 --platform iphonesimulator --bundle-identifier com.example.lieve --generate-swift-asset-symbol-extensions NO --generate-swift-asset-symbols /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources/GeneratedAssetSymbols.swift --generate-objc-asset-symbols /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources/GeneratedAssetSymbols.h --generate-asset-symbol-index /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/* com.apple.actool.compilation-results */
+/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources/GeneratedAssetSymbols.h
+/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources/GeneratedAssetSymbols.swift
+
+
+CpResource /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/PrivacyInfo.xcprivacy /Users/runner/work/Lieve/Lieve/Lieve/Resources/PrivacyInfo.xcprivacy (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/runner/work/Lieve/Lieve/Lieve/Resources/PrivacyInfo.xcprivacy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app
+
+CpResource /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/FilterPack.lvp /Users/runner/work/Lieve/Lieve/Lieve/Resources/FilterPack.lvp (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/runner/work/Lieve/Lieve/Lieve/Resources/FilterPack.lvp /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app
+
+CompileAssetCatalogVariant thinned /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app /Users/runner/work/Lieve/Lieve/Lieve/Resources/Assets.xcassets (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /Applications/Xcode_26.6.app/Contents/Developer/usr/bin/actool /Users/runner/work/Lieve/Lieve/Lieve/Resources/Assets.xcassets --compile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_output/thinned --output-format human-readable-text --notices --warnings --export-dependency-info /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_dependencies_thinned --output-partial-info-plist /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_generated_info.plist_thinned --app-icon AppIcon --compress-pngs --enable-on-demand-resources YES --filter-for-thinning-device-configuration iPhone18,1 --filter-for-device-os-version 26.5 --development-region it --target-device iphone --target-device ipad --minimum-deployment-target 17.0 --platform iphonesimulator
+/* com.apple.actool.compilation-results */
+/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_generated_info.plist_thinned
+/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_output/thinned/AppIcon60x60@2x.png
+/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_output/thinned/AppIcon76x76@2x~ipad.png
+/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_output/thinned/Assets.car
+
+
+SwiftDriver Lieve normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-SwiftDriver -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Lieve -Onone @/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/Lieve/Lieve/build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -F /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -c -j4 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/Lieve/Lieve/build/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-f45c64a1807a658693f2a61704f17a36.sdkstatcache -output-file-map /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-generated-files.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-own-target-headers.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-project-headers.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources-normal/x86_64 -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources/x86_64 -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve-Swift.h -working-directory /Users/runner/work/Lieve/Lieve -experimental-emit-module-separately -disable-cmo
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/SwiftShims-15YQ653C29BL6SNTZX0IUCWK9.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_Builtin_stdarg-DF0L3Z6SW29QHEPS8MWOH9YAQ.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/ptrauth-BWI06E1VLIGU52WCGD6RMM6YY.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_SwiftConcurrencyShims-B02LVHQQ59QLLYTJRHWM8AHQ5.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_Builtin_float-38DVCE1QN8VXTYOXP6VH9B35B.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_AvailabilityInternal-EUP3GHDDM8WS07PPI4AUC8Q9C.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_Builtin_stdbool-ERV81YC1B9OA84AREFZI3AF0O.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_Builtin_stddef-9O2QBOG3GTW8M6DZRXCKUZ04I.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/DeveloperToolsSupport-4YCWLANPCVSAQDR3445UPA3KE.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/ptrcheck-9IM7I3SHYX869CSD90BOPCPAQ.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_DarwinFoundation1-5AIIFEN52STD1UNEL1LGZFR7B.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_DarwinFoundation2-1ZYUDO2IELEM4NTB0SGYC75HW.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_Builtin_limits-BMLURQ20YKUSZQPR1ZTOJESNZ.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_Builtin_tgmath-AMMNI094ZJQI0LOWQCPN19YL2.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_Builtin_stdint-6CLV0AGLEUZW3VBSYK45ZC34Q.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/sys_types-DPZ9BGGEOT0HZE0KEVH4WPHMC.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_DarwinFoundation3-2L353I0R8A0XWWIN2VM7ZG90Y.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_Builtin_stdatomic-DAANAQIPEOOWHV7WGCZ7XD756.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_Builtin_intrinsics-EUJC1JE5RZHZ8JNCBYHQK6NXU.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/_Builtin_inttypes-5D2MBSM8XD1VHKZFKVHO2NRD2.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Darwin-9THDMYQ97KZII31WXNNC0K5HW.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/simd-6OR1Y7ADL8ODYLN0THOHQWFMH.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/ObjectiveC-ANFVO4GZ1319ZLRM0CLK81OMD.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/MachO-B66MS5TGMG640271RD4ARFNJT.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/os_object-1Y2UWE28F76BYJHT32Q21C042.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/os_workgroup-4VCF4Q3OYQIPYNJAIUYIL07KA.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Dispatch-EGL2UVNAZPAWRGSSEAMC2JC32.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/dnssd-BG1K4GKBQNTATBIHAMTTGL3NY.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/CoreFoundation-URGZP2DFZGOQ8OQS9EOU9RO8.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/XPC-8GTH1NB3GSBL08Z1025CNF62M.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/os-EAZ2N7VZ1RZYQ3LHDEYSBW239.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/CFNetwork-E7UT4JPNGMHQHB7W9BRGJUKVG.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Security-EQJODNFH3AG3JFNLKRCZUZUBY.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/CoreGraphics-KE8P6EKUMJKJSRBK7GCMIRF4.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/CoreAudioTypes-F2468SSAKFNAR45UDELHT7QV3.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Foundation-7M4FBU4GZAARYT2CN44IC09GM.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Spatial-CENM47ZPZZ5SSEQPXH3BIBNHG.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/CoreAudio-81ARP486H5ME9X9W1KU4OBPMW.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/CoreText-6ZZEHYMON2YV0270DIOW8MU1.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/ImageIO-3SOQNC2P9MV33WMDDW2FLUCZ6.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/OSLog-E2WIT34USIOVL2T3ZNQTOUHGD.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/UniformTypeIdentifiers-D7JITGMC5SI8SBO3DXS2XJNFF.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Network-4UKXXFHM97YRI9GTNGGWY2CV.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/CoreTransferable-4D2LWSIBGM0XLHBS1PP3LY0JH.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/IOSurface-CISMLZ7DKM699PSG4IICJPDUM.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/OpenGLES-BUG7VM5THQCDK7XFVS6H3X1CZ.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/AVRouting-2LSTUWV1PQX6T827V9VOK6JH3.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Symbols-404CS9KHLWJKILL8P38PTE8IP.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/MediaAccessibility-3LKOGGMHJRR0V9I45CA2UM8WI.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/UserNotifications-9C0AEAYZV4GC3O8MI9KLJJEGG.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/CoreMIDI-D07BS8OMVFB52QQ0YI7UEXYRZ.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/DataDetection-9E40IO93AUWUWBNYETCKWPLZ1.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/LocalAuthentication-ES8GWEP6QCA37J3VO9US5NAIW.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Metal-91OVED0IJ4W6HBU9016NN63UX.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Accessibility-C3VHM425ISWEC76PBMAN1QMGC.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/FileProvider-84DL303MTRTTERAQX8WPDB1H8.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/UIUtilities-E1VLG83A1U8ZFHB3W8TT3EMZ8.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/AudioToolbox-CQJ92V8NDSONILMSS96HI8UYI.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/CoreData-2UUK3T9TVWPG3SVH9Q6E77W92.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/CoreVideo-7CQBR9PDZR4XSOGCQ8NU0UY08.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/CoreImage-9KXW8CH1AGMGNYMYRX2GAMLTO.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/QuartzCore-AVLR6E7IYEOOWP2GZURS4NFIX.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/CoreMedia-8G0K5K7DHSMMGHV9EGGIEDHMK.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/SwiftUICore-8IQPLE82R3U3FZN178RLIC5ZY.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/UIKit-94MN4N8GPTHZI9A8658ASE6AI.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/MediaToolbox-5M8WRS7G4JBMMZSL0FUHNTEE9.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/AVFAudio-AVZV6NDPATPC04JJYIHZT7VLE.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/AVFoundation-PPNJEFRRZH54EPIY6J93396G.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/WebKit-43MNJOG0SDXYNA8020XW03GBF.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/AVKit-A5YJEDQZBMI5ZC2Z6FV5ETO8X.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/SwiftUI-AV1KVF8NBC2FX64T4CEWNJV33.pcm
+
+SwiftCompile normal x86_64 Compiling\ AddressSheet.swift,\ AppDelegate.swift,\ AudioSession.swift,\ BrowserTab.swift /Users/runner/work/Lieve/Lieve/Lieve/UI/AddressSheet.swift /Users/runner/work/Lieve/Lieve/Lieve/App/AppDelegate.swift /Users/runner/work/Lieve/Lieve/Lieve/Media/AudioSession.swift /Users/runner/work/Lieve/Lieve/Lieve/Browser/BrowserTab.swift (in target 'Lieve' from project 'Lieve')
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/Lieve/UI/AddressSheet.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/Lieve/App/AppDelegate.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/Lieve/Media/AudioSession.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/Lieve/Browser/BrowserTab.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+/Users/runner/work/Lieve/Lieve/Lieve/Browser/BrowserTab.swift:95:46: warning: capture of 'keyPath' with non-Sendable type 'KeyPath<WKWebView, Value>' in a '@Sendable' closure
+                let value = webView[keyPath: keyPath]
+                                             ^
+Swift.KeyPath:1:14: note: generic class 'KeyPath' does not conform to the 'Sendable' protocol
+public class KeyPath<Root, Value> : PartialKeyPath<Root> {
+             ^
+
+SwiftEmitModule normal x86_64 Emitting\ module\ for\ Lieve (in target 'Lieve' from project 'Lieve')
+
+EmitSwiftModule normal x86_64 (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 Compiling\ WebConfiguration.swift,\ WebViewDelegate.swift,\ GeneratedAssetSymbols.swift /Users/runner/work/Lieve/Lieve/Lieve/Browser/WebConfiguration.swift /Users/runner/work/Lieve/Lieve/Lieve/Browser/WebViewDelegate.swift /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'Lieve' from project 'Lieve')
+
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/Lieve/Browser/WebConfiguration.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/Lieve/Browser/WebViewDelegate.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 Compiling\ MediaBridge.swift,\ Preferences.swift,\ SettingsSheet.swift,\ URLInput.swift /Users/runner/work/Lieve/Lieve/Lieve/Media/MediaBridge.swift /Users/runner/work/Lieve/Lieve/Lieve/App/Preferences.swift /Users/runner/work/Lieve/Lieve/Lieve/UI/SettingsSheet.swift /Users/runner/work/Lieve/Lieve/Lieve/Browser/URLInput.swift (in target 'Lieve' from project 'Lieve')
+
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/Lieve/Media/MediaBridge.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/Lieve/App/Preferences.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/Lieve/UI/SettingsSheet.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/Lieve/Browser/URLInput.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftDriverJobDiscovery normal x86_64 Emitting module for Lieve (in target 'Lieve' from project 'Lieve')
+
+SwiftDriver\ Compilation\ Requirements Lieve normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Lieve -Onone @/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/Lieve/Lieve/build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -F /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -c -j4 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/Lieve/Lieve/build/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-f45c64a1807a658693f2a61704f17a36.sdkstatcache -output-file-map /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-generated-files.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-own-target-headers.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-project-headers.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources-normal/x86_64 -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources/x86_64 -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve-Swift.h -working-directory /Users/runner/work/Lieve/Lieve -experimental-emit-module-separately -disable-cmo
+
+LinkAssetCatalog /Users/runner/work/Lieve/Lieve/Lieve/Resources/Assets.xcassets (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-linkAssetCatalog --thinned /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_output/thinned --thinned-dependencies /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_dependencies_thinned --thinned-info-plist-content /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_generated_info.plist_thinned --unthinned /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_output/unthinned --unthinned-dependencies /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_dependencies_unthinned --unthinned-info-plist-content /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_generated_info.plist_unthinned --output /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app --plist-output /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_generated_info.plist
+note: Emplaced /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/AppIcon76x76@2x~ipad.png (in target 'Lieve' from project 'Lieve')
+note: Emplaced /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/AppIcon60x60@2x.png (in target 'Lieve' from project 'Lieve')
+note: Emplaced /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Assets.car (in target 'Lieve' from project 'Lieve')
+
+SwiftCompile normal x86_64 Compiling\ BrowserViewController.swift,\ FilterManager.swift,\ FilterPack.swift,\ FloatingMenu.swift /Users/runner/work/Lieve/Lieve/Lieve/UI/BrowserViewController.swift /Users/runner/work/Lieve/Lieve/Lieve/Filters/FilterManager.swift /Users/runner/work/Lieve/Lieve/Lieve/Filters/FilterPack.swift /Users/runner/work/Lieve/Lieve/Lieve/UI/FloatingMenu.swift (in target 'Lieve' from project 'Lieve')
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/Lieve/UI/BrowserViewController.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/Lieve/Filters/FilterManager.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/Lieve/Filters/FilterPack.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/Lieve/UI/FloatingMenu.swift (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftMergeGeneratedHeaders /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources/Lieve-Swift.h /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve-Swift.h (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-swiftHeaderTool -arch x86_64 /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve-Swift.h -o /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources/Lieve-Swift.h
+
+SwiftDriverJobDiscovery normal x86_64 Compiling MediaBridge.swift, Preferences.swift, SettingsSheet.swift, URLInput.swift (in target 'Lieve' from project 'Lieve')
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.swiftmodule/x86_64-apple-ios-simulator.swiftmodule /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.swiftmodule (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.swiftmodule /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.swiftmodule/x86_64-apple-ios-simulator.swiftmodule
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.swiftmodule/x86_64-apple-ios-simulator.swiftdoc /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.swiftdoc (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.swiftdoc /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.swiftmodule/x86_64-apple-ios-simulator.swiftdoc
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.swiftmodule/x86_64-apple-ios-simulator.abi.json /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.abi.json (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.abi.json /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.swiftmodule/x86_64-apple-ios-simulator.abi.json
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.swiftsourceinfo (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.swiftsourceinfo /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo
+
+ProcessInfoPlistFile /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Info.plist /Users/runner/work/Lieve/Lieve/Support/Info.plist (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-infoPlistUtility /Users/runner/work/Lieve/Lieve/Support/Info.plist -producttype com.apple.product-type.application -genpkginfo /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/assetcatalog_generated_info.plist -o /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Info.plist
+
+SwiftDriverJobDiscovery normal x86_64 Compiling WebConfiguration.swift, WebViewDelegate.swift, GeneratedAssetSymbols.swift (in target 'Lieve' from project 'Lieve')
+
+SwiftDriver LieveUITests normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-SwiftDriver -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name LieveUITests -Onone @/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/Lieve/Lieve/build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -c -j4 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/Lieve/Lieve/build/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-f45c64a1807a658693f2a61704f17a36.sdkstatcache -output-file-map /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-generated-files.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-own-target-headers.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-project-headers.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/DerivedSources-normal/x86_64 -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/DerivedSources/x86_64 -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests-Swift.h -working-directory /Users/runner/work/Lieve/Lieve -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal x86_64 Compiling AddressSheet.swift, AppDelegate.swift, AudioSession.swift, BrowserTab.swift (in target 'Lieve' from project 'Lieve')
+
+SwiftDriverJobDiscovery normal x86_64 Compiling BrowserViewController.swift, FilterManager.swift, FilterPack.swift, FloatingMenu.swift (in target 'Lieve' from project 'Lieve')
+
+SwiftDriver\ Compilation Lieve normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-Swift-Compilation -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Lieve -Onone @/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/Lieve/Lieve/build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -F /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -c -j4 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/Lieve/Lieve/build/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-f45c64a1807a658693f2a61704f17a36.sdkstatcache -output-file-map /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-generated-files.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-own-target-headers.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-project-headers.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources-normal/x86_64 -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources/x86_64 -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve-Swift.h -working-directory /Users/runner/work/Lieve/Lieve -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Lieve.debug.dylib normal (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -O0 -L/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -F/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -filelist /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.LinkFileList -install_name @rpath/Lieve.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.swiftmodule @/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve-linker-args.resp -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -o /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Lieve.debug.dylib
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCUIAutomation-8SWUNAA1RI3Y30ABXSFKJJ3GQ.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCTest-2LYZ4CW5GYCMJM5UNCRT0EMTZ.pcm
+
+SwiftExplicitDependencyCompileModuleFromInterface x86_64 /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCUIAutomation-34H7NZ0AV5SF7.swiftmodule
+
+SwiftExplicitDependencyCompileModuleFromInterface x86_64 /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCTest-2YB9GZHDSVI6J.swiftmodule
+
+ConstructStubExecutorLinkFileList /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-ExecutorLinkFileList-normal-x86_64.txt (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    construct-stub-executor-link-file-list /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Lieve.debug.dylib /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-ExecutorLinkFileList-normal-x86_64.txt
+note: Using stub executor library with Swift entry point. (in target 'Lieve' from project 'Lieve')
+
+Ld /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Lieve normal (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios17.0-simulator -isysroot /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -O0 -L/Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -F/Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-DebugDylibPath-normal-x86_64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-DebugDylibInstallName-normal-x86_64.txt -Xlinker -filelist -Xlinker /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve-ExecutorLinkFileList-normal-x86_64.txt /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Lieve.debug.dylib -o /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Lieve
+
+ExtractAppIntentsMetadata (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name Lieve --sdk-root /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk --xcode-version 17F113 --platform-family iOS --deployment-target 17.0 --bundle-identifier com.example.lieve --output /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app --target-triple x86_64-apple-ios17.0-simulator --binary-file /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Lieve --dependency-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve_dependency_info.dat --stringsdata-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.SwiftFileList --metadata-file-list /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve.DependencyMetadataFileList --static-metadata-file-list /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve.DependencyStaticMetadataFileList --swift-const-vals-list /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Objects-normal/x86_64/Lieve.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-11-21 12:30:49.496 appintentsmetadataprocessor[20357:57532] Starting appintentsmetadataprocessor export
+2026-11-21 12:30:49.517 appintentsmetadataprocessor[20357:57532] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+CopySwiftLibs /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Lieve.debug.dylib --scan-folder /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Frameworks --scan-folder /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/PlugIns --scan-folder /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/SystemExtensions --scan-folder /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Extensions --platform iphonesimulator --toolchain /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+Ignoring --strip-bitcode because --sign was not passed
+
+AppIntentsSSUTraining (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Info.plist --temp-dir-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/ssu --bundle-id com.example.lieve --product-path /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app --extracted-metadata-path /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Metadata.appintents --metadata-file-list /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/Lieve.build/Lieve.DependencyMetadataFileList --source-file /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app/Info.plist --archive-ssu-assets
+2026-11-21 12:30:49.565 appintentsnltrainingprocessor[20358:57533] Parsing options for appintentsnltrainingprocessor
+2026-11-21 12:30:49.566 appintentsnltrainingprocessor[20358:57533] Starting AppIntents SSU YAML Generation
+2026-11-21 12:30:49.574 appintentsnltrainingprocessor[20358:57533] No AppShortcuts found - Skipping.
+
+RegisterExecutionPolicyException /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-RegisterExecutionPolicyException /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app
+
+SwiftEmitModule normal x86_64 Emitting\ module\ for\ LieveUITests (in target 'LieveUITests' from project 'Lieve')
+
+EmitSwiftModule normal x86_64 (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 Compiling\ LieveUITests.swift /Users/runner/work/Lieve/Lieve/LieveUITests/LieveUITests.swift (in target 'LieveUITests' from project 'Lieve')
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/LieveUITests/LieveUITests.swift (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+SwiftCompile normal x86_64 Compiling\ StartTimeTests.swift /Users/runner/work/Lieve/Lieve/LieveUITests/StartTimeTests.swift (in target 'LieveUITests' from project 'Lieve')
+SwiftCompile normal x86_64 /Users/runner/work/Lieve/Lieve/LieveUITests/StartTimeTests.swift (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    
+
+Validate /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-validationUtility /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app -shallow-bundle -infoplist-subpath Info.plist
+
+Touch /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app (in target 'Lieve' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /usr/bin/touch -c /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/Lieve.app
+
+ProcessInfoPlistFile /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/Info.plist /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/empty-LieveUITests.plist (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-infoPlistUtility /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/empty-LieveUITests.plist -producttype com.apple.product-type.bundle.ui-testing -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/ProductTypeInfoPlistAdditions.plist -o /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/Info.plist
+
+SwiftDriverJobDiscovery normal x86_64 Emitting module for LieveUITests (in target 'LieveUITests' from project 'Lieve')
+
+SwiftDriver\ Compilation\ Requirements LieveUITests normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name LieveUITests -Onone @/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/Lieve/Lieve/build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -c -j4 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/Lieve/Lieve/build/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-f45c64a1807a658693f2a61704f17a36.sdkstatcache -output-file-map /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-generated-files.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-own-target-headers.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-project-headers.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/DerivedSources-normal/x86_64 -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/DerivedSources/x86_64 -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests-Swift.h -working-directory /Users/runner/work/Lieve/Lieve -experimental-emit-module-separately -disable-cmo
+
+SwiftMergeGeneratedHeaders /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/DerivedSources/LieveUITests-Swift.h /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests-Swift.h (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-swiftHeaderTool -arch x86_64 /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests-Swift.h -o /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/DerivedSources/LieveUITests-Swift.h
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests.swiftmodule/x86_64-apple-ios-simulator.swiftmodule /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.swiftmodule (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.swiftmodule /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests.swiftmodule/x86_64-apple-ios-simulator.swiftmodule
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests.swiftmodule/x86_64-apple-ios-simulator.swiftdoc /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.swiftdoc (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.swiftdoc /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests.swiftmodule/x86_64-apple-ios-simulator.swiftdoc
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests.swiftmodule/x86_64-apple-ios-simulator.abi.json /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.abi.json (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.abi.json /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests.swiftmodule/x86_64-apple-ios-simulator.abi.json
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.swiftsourceinfo (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.swiftsourceinfo /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo
+
+SwiftDriverJobDiscovery normal x86_64 Compiling LieveUITests.swift (in target 'LieveUITests' from project 'Lieve')
+
+SwiftDriverJobDiscovery normal x86_64 Compiling StartTimeTests.swift (in target 'LieveUITests' from project 'Lieve')
+
+SwiftDriver\ Compilation LieveUITests normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-Swift-Compilation -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name LieveUITests -Onone @/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/Lieve/Lieve/build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -c -j4 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/Lieve/Lieve/build/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-f45c64a1807a658693f2a61704f17a36.sdkstatcache -output-file-map /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/Lieve/Lieve/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-generated-files.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-own-target-headers.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests-project-headers.hmap -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/DerivedSources-normal/x86_64 -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/DerivedSources/x86_64 -Xcc -I/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests-Swift.h -working-directory /Users/runner/work/Lieve/Lieve -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/LieveUITests normal (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios17.0-simulator -bundle -isysroot /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -O0 -L/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -L/Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -filelist /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.swiftmodule @/Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests-linker-args.resp -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport -o /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/LieveUITests
+
+ExtractAppIntentsMetadata (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name LieveUITests --sdk-root /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk --xcode-version 17F113 --platform-family iOS --deployment-target 17.0 --bundle-identifier com.example.lieve.uitests --output /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest --target-triple x86_64-apple-ios17.0-simulator --binary-file /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/LieveUITests --dependency-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests_dependency_info.dat --stringsdata-file /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.SwiftFileList --metadata-file-list /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests.DependencyMetadataFileList --static-metadata-file-list /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests.DependencyStaticMetadataFileList --swift-const-vals-list /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/Objects-normal/x86_64/LieveUITests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-11-21 12:30:50.520 appintentsmetadataprocessor[20373:57592] Starting appintentsmetadataprocessor export
+2026-11-21 12:30:50.522 appintentsmetadataprocessor[20373:57592] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+CopySwiftLibs /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/LieveUITests --scan-folder /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/Frameworks --scan-folder /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/PlugIns --scan-folder /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/SystemExtensions --scan-folder /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/Extensions --platform iphonesimulator --toolchain /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+Ignoring --strip-bitcode because --sign was not passed
+
+AppIntentsSSUTraining (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/Info.plist --temp-dir-path /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/ssu --bundle-id com.example.lieve.uitests --product-path /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest --extracted-metadata-path /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/Metadata.appintents --metadata-file-list /Users/runner/work/Lieve/Lieve/build/Build/Intermediates.noindex/Lieve.build/Debug-iphonesimulator/LieveUITests.build/LieveUITests.DependencyMetadataFileList --source-file /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/Info.plist --archive-ssu-assets
+2026-11-21 12:30:50.561 appintentsnltrainingprocessor[20376:57604] Parsing options for appintentsnltrainingprocessor
+2026-11-21 12:30:50.562 appintentsnltrainingprocessor[20376:57604] Starting AppIntents SSU YAML Generation
+2026-11-21 12:30:50.562 appintentsnltrainingprocessor[20376:57604] No AppShortcuts found - Skipping.
+
+MkDir /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /bin/mkdir -p /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app
+
+CopyPlistFile /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Info.plist /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Xcode/Agents/XCTRunner.app/Info.plist (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copyPlist --validate --convert xml1 --macro-expansion WRAPPEDPRODUCTNAME LieveUITests-Runner --macro-expansion WRAPPEDPRODUCTBUNDLEIDENTIFIER com.example.lieve.uitests.xctrunner --macro-expansion TESTPRODUCTNAME LieveUITests --macro-expansion TESTPRODUCTBUNDLEIDENTIFIER com.example.lieve.uitests --copy-value UIDeviceFamily /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest/Info.plist --outdir /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app -- /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Xcode/Agents/XCTRunner.app/Info.plist
+
+CopyAndPreserveArchs /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/LieveUITests-Runner (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Xcode/Agents/XCTRunner.app/XCTRunner -output /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/LieveUITests-Runner -extract x86_64
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PkgInfo /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Xcode/Agents/XCTRunner.app/PkgInfo (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Xcode/Agents/XCTRunner.app/PkgInfo /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks/libXCTestSwiftSupport.dylib /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks/XCUnit.framework /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCUnit.framework (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCUnit.framework /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks/XCUIAutomation.framework /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCUIAutomation.framework (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCUIAutomation.framework /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks/XCTestSupport.framework /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTestSupport.framework (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTestSupport.framework /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks/XCTestCore.framework /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTestCore.framework (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTestCore.framework /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks/XCTest.framework /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks/XCTAutomationSupport.framework /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTAutomationSupport.framework (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTAutomationSupport.framework /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks
+
+Copy /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks/Testing.framework /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/Testing.framework (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/Testing.framework /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/Frameworks
+
+RegisterExecutionPolicyException /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    builtin-RegisterExecutionPolicyException /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest
+
+Touch /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest (in target 'LieveUITests' from project 'Lieve')
+    cd /Users/runner/work/Lieve/Lieve
+    /usr/bin/touch -c /Users/runner/work/Lieve/Lieve/build/Build/Products/Debug-iphonesimulator/LieveUITests-Runner.app/PlugIns/LieveUITests.xctest
+
+2026-11-21 12:34:02.908127+0000 LieveUITests-Runner[22204:65187] [Default] Running tests...
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'All tests' started at 2026-11-21 12:34:36.030.
+Test Suite 'LieveUITests.xctest' started at 2026-11-21 12:34:36.037.
+Test Suite 'LieveUITests' started at 2026-11-21 12:34:36.038.
+Test Case '-[LieveUITests.LieveUITests testTouchesMenuAndDrag]' started.
+    t =     0.00s Start Test at 2026-11-21 12:34:36.041
+    t =     2.29s Set Up
+    t =     2.30s     Open com.example.lieve
+    t =     2.30s         Launch com.example.lieve
+2026-11-21 12:35:33.866 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: The operation couldn’t be completed. (DebuggerLLDB.DebuggerVersionStore.StoreError error 0.)
+2026-11-21 12:35:33.867 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =    63.24s             Setting up automation session
+    t =    66.52s             Wait for com.example.lieve to idle
+    t =    81.88s Find the Target Application 'com.example.lieve'
+    t =    89.50s Added attachment named '1-avvio'
+    t =    89.54s Tap Target Application 'com.example.lieve'[0.50, 0.60]
+    t =    89.54s     Wait for com.example.lieve to idle
+    t =    89.57s     Find the Target Application 'com.example.lieve'
+    t =    93.93s     Check for interrupting elements affecting "Lieve" Application
+    t =    97.46s     Synthesize event
+    t =    98.33s         Find the Target Application 'com.example.lieve'
+    t =    99.67s         Find the Target Application 'com.example.lieve'
+    t =   102.45s         Find the Target Application 'com.example.lieve'
+    t =   104.10s     Wait for com.example.lieve to idle
+    t =   107.24s Tap Target Application 'com.example.lieve'[0.50, 0.25]
+    t =   107.24s     Wait for com.example.lieve to idle
+    t =   107.29s     Find the Target Application 'com.example.lieve'
+    t =   118.46s     Check for interrupting elements affecting "Lieve" Application
+    t =   126.53s     Synthesize event
+    t =   129.02s         Find the Target Application 'com.example.lieve'
+    t =   129.56s         Find the Target Application 'com.example.lieve'
+    t =   140.41s         Find the Target Application 'com.example.lieve'
+    t =   146.79s     Wait for com.example.lieve to idle
+    t =   149.25s Swipe up Target Application 'com.example.lieve'
+    t =   149.25s     Wait for com.example.lieve to idle
+    t =   149.26s     Find the Target Application 'com.example.lieve'
+    t =   150.80s     Check for interrupting elements affecting "Lieve" Application
+    t =   157.08s     Synthesize event
+    t =   157.56s     Wait for com.example.lieve to idle
+    t =   161.73s Swipe down Target Application 'com.example.lieve'
+    t =   161.73s     Wait for com.example.lieve to idle
+    t =   161.74s     Find the Target Application 'com.example.lieve'
+    t =   163.79s     Check for interrupting elements affecting "Lieve" Application
+    t =   164.98s     Synthesize event
+    t =   166.13s     Wait for com.example.lieve to idle
+    t =   169.40s Find the Target Application 'com.example.lieve'
+    t =   172.15s Added attachment named '2-dopo-tocchi'
+    t =   172.16s Waiting 10.0s for "Menu" Button to exist
+    t =   173.22s     Checking `Expect predicate `existsNoRetry == 1` for object "Menu" Button`
+    t =   173.23s         Checking existence of `"Menu" Button`
+    t =   176.62s Tap "Menu" Button
+    t =   176.62s     Wait for com.example.lieve to idle
+    t =   176.69s     Find the "Menu" Button
+    t =   178.88s     Check for interrupting elements affecting "Menu" Button
+    t =   181.37s     Synthesize event
+    t =   182.48s     Wait for com.example.lieve to idle
+    t =   184.02s Waiting 5.0s for "Impostazioni" Button to exist
+    t =   185.07s     Checking `Expect predicate `existsNoRetry == 1` for object "Impostazioni" Button`
+    t =   185.07s         Checking existence of `"Impostazioni" Button`
+    t =   189.29s         Capturing element debug description
+    t =   189.29s     Checking existence of `"Impostazioni" Button`
+    t =   193.46s Find the Target Application 'com.example.lieve'
+    t =   197.82s Added attachment named '3-menu-aperto'
+    t =   197.83s Tap "Indirizzo" Button
+    t =   197.83s     Wait for com.example.lieve to idle
+    t =   197.85s     Find the "Indirizzo" Button
+    t =   201.34s     Check for interrupting elements affecting "Indirizzo" Button
+    t =   202.74s     Synthesize event
+    t =   204.43s     Wait for com.example.lieve to idle
+    t =   208.00s Find the Target Application 'com.example.lieve'
+    t =   218.00s Added attachment named '4-indirizzo'
+    t =   218.00s Tap "Annulla" Button
+    t =   218.00s     Wait for com.example.lieve to idle
+    t =   218.82s     Find the "Annulla" Button
+    t =   224.34s     Check for interrupting elements affecting "Annulla" Button
+    t =   227.58s     Synthesize event
+    t =   229.58s     Wait for com.example.lieve to idle
+    t =   232.25s Tap "Impostazioni" Button
+    t =   232.25s     Wait for com.example.lieve to idle
+    t =   232.82s     Find the "Impostazioni" Button
+    t =   236.87s     Check for interrupting elements affecting "Impostazioni" Button
+    t =   237.43s     Synthesize event
+    t =   238.13s     Wait for com.example.lieve to idle
+    t =   242.87s Find the Target Application 'com.example.lieve'
+    t =   245.60s Added attachment named '5-impostazioni'
+    t =   245.60s Tap "Fine" Button
+    t =   245.60s     Wait for com.example.lieve to idle
+    t =   245.61s     Find the "Fine" Button
+    t =   252.17s     Check for interrupting elements affecting "Fine" Button
+    t =   256.07s     Synthesize event
+    t =   258.76s     Wait for com.example.lieve to idle
+    t =   261.15s Tap "Chiudi menu" Button
+    t =   261.16s     Wait for com.example.lieve to idle
+    t =   261.16s     Find the "Chiudi menu" Button
+    t =   262.73s     Check for interrupting elements affecting "Chiudi menu" Button
+    t =   265.64s     Synthesize event
+    t =   268.11s     Wait for com.example.lieve to idle
+    t =   269.40s Press "Menu" Button[0.50, 0.50] for 0.2 seconds, then drag to Target Application 'com.example.lieve'[0.10, 0.40] with velocity of 500.00 pixels per second, and then hold for 0.0 seconds 
+    t =   269.40s     Wait for com.example.lieve to idle
+    t =   269.41s     Find the "Menu" Button
+    t =   274.88s     Check for interrupting elements affecting "Menu" Button
+    t =   278.78s     Synthesize event
+    t =   279.20s         Find the "Menu" Button
+    t =   282.57s         Find the "Menu" Button
+    t =   285.60s         Find the Target Application 'com.example.lieve'
+    t =   287.63s         Find the Target Application 'com.example.lieve'
+    t =   289.64s         Find the "Menu" Button
+    t =   291.39s     Wait for com.example.lieve to idle
+    t =   292.55s Find the Target Application 'com.example.lieve'
+    t =   293.21s Added attachment named '6-menu-spostato'
+    t =   293.21s Tap Target Application 'com.example.lieve'[0.50, 0.70]
+    t =   293.21s     Wait for com.example.lieve to idle
+    t =   293.22s     Find the Target Application 'com.example.lieve'
+    t =   293.39s     Check for interrupting elements affecting "Lieve" Application
+    t =   293.56s     Synthesize event
+    t =   293.57s         Find the Target Application 'com.example.lieve'
+    t =   293.67s         Find the Target Application 'com.example.lieve'
+    t =   293.86s         Find the Target Application 'com.example.lieve'
+    t =   294.37s     Wait for com.example.lieve to idle
+    t =   295.39s Press Target Application 'com.example.lieve'[0.50, 0.70] for 1.2 seconds
+    t =   295.39s     Wait for com.example.lieve to idle
+    t =   295.41s     Find the Target Application 'com.example.lieve'
+    t =   295.92s     Check for interrupting elements affecting "Lieve" Application
+    t =   296.28s     Synthesize event
+    t =   296.31s         Find the Target Application 'com.example.lieve'
+    t =   296.40s         Find the Target Application 'com.example.lieve'
+    t =   296.61s         Find the Target Application 'com.example.lieve'
+    t =   298.07s     Wait for com.example.lieve to idle
+    t =   300.57s Find the Target Application 'com.example.lieve'
+    t =   301.08s Added attachment named '7-fine'
+    t =   301.08s Tear Down
+Test Case '-[LieveUITests.LieveUITests testTouchesMenuAndDrag]' passed (312.418 seconds).
+Test Suite 'LieveUITests' passed at 2026-11-21 12:39:48.460.
+	 Executed 1 test, with 0 failures (0 unexpected) in 312.418 (312.422) seconds
+Test Suite 'StartTimeTests' started at 2026-11-21 12:39:48.461.
+Test Case '-[LieveUITests.StartTimeTests test1Channel]' started.
+    t =     0.00s Start Test at 2026-11-21 12:39:48.462
+    t =     0.03s Set Up
+    t =     0.04s Open com.example.lieve
+    t =     0.04s     Launch com.example.lieve
+    t =     0.04s         Terminate com.example.lieve:23082
+2026-11-21 12:39:50.605 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: The operation couldn’t be completed. (DebuggerLLDB.DebuggerVersionStore.StoreError error 0.)
+2026-11-21 12:39:50.605 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     2.92s         Setting up automation session
+    t =     6.56s         Wait for com.example.lieve to idle
+    t =     9.56s Checking existence of `"lieve.metric" StaticText`
+    t =     9.62s Find the "lieve.metric" StaticText
+    t =    11.87s Checking existence of `"lieve.metric" StaticText`
+    t =    16.33s Find the "lieve.metric" StaticText
+    t =    17.90s Checking existence of `"lieve.metric" StaticText`
+    t =    18.08s Find the "lieve.metric" StaticText
+    t =    19.27s Checking existence of `"lieve.metric" StaticText`
+    t =    19.46s Find the "lieve.metric" StaticText
+    t =    20.65s Checking existence of `"lieve.metric" StaticText`
+    t =    20.84s Find the "lieve.metric" StaticText
+    t =    22.03s Checking existence of `"lieve.metric" StaticText`
+    t =    22.21s Find the "lieve.metric" StaticText
+    t =    23.38s Checking existence of `"lieve.metric" StaticText`
+    t =    23.60s Find the "lieve.metric" StaticText
+    t =    24.78s Checking existence of `"lieve.metric" StaticText`
+    t =    24.99s Find the "lieve.metric" StaticText
+    t =    26.21s Checking existence of `"lieve.metric" StaticText`
+    t =    26.40s Find the "lieve.metric" StaticText
+    t =    27.59s Checking existence of `"lieve.metric" StaticText`
+    t =    27.81s Find the "lieve.metric" StaticText
+    t =    29.04s Checking existence of `"lieve.metric" StaticText`
+    t =    29.28s Find the "lieve.metric" StaticText
+    t =    30.48s Checking existence of `"lieve.metric" StaticText`
+    t =    30.67s Find the "lieve.metric" StaticText
+    t =    31.88s Checking existence of `"lieve.metric" StaticText`
+    t =    32.05s Find the "lieve.metric" StaticText
+    t =    33.22s Checking existence of `"lieve.metric" StaticText`
+    t =    33.42s Find the "lieve.metric" StaticText
+    t =    34.60s Checking existence of `"lieve.metric" StaticText`
+    t =    34.77s Find the "lieve.metric" StaticText
+    t =    35.98s Checking existence of `"lieve.metric" StaticText`
+    t =    36.17s Find the "lieve.metric" StaticText
+    t =    37.36s Checking existence of `"lieve.metric" StaticText`
+    t =    37.55s Find the "lieve.metric" StaticText
+    t =    38.74s Checking existence of `"lieve.metric" StaticText`
+    t =    38.91s Find the "lieve.metric" StaticText
+    t =    40.13s Checking existence of `"lieve.metric" StaticText`
+    t =    40.29s Find the "lieve.metric" StaticText
+    t =    41.45s Checking existence of `"lieve.metric" StaticText`
+    t =    41.62s Find the "lieve.metric" StaticText
+    t =    42.79s Checking existence of `"lieve.metric" StaticText`
+    t =    42.96s Find the "lieve.metric" StaticText
+    t =    44.13s Checking existence of `"lieve.metric" StaticText`
+    t =    44.33s Find the "lieve.metric" StaticText
+    t =    45.49s Checking existence of `"lieve.metric" StaticText`
+    t =    45.65s Find the "lieve.metric" StaticText
+    t =    46.87s Checking existence of `"lieve.metric" StaticText`
+    t =    47.08s Find the "lieve.metric" StaticText
+    t =    48.24s Checking existence of `"lieve.metric" StaticText`
+    t =    48.43s Find the "lieve.metric" StaticText
+    t =    49.62s Checking existence of `"lieve.metric" StaticText`
+    t =    49.83s Find the "lieve.metric" StaticText
+    t =    51.01s Checking existence of `"lieve.metric" StaticText`
+    t =    51.18s Find the "lieve.metric" StaticText
+    t =    52.36s Checking existence of `"lieve.metric" StaticText`
+    t =    52.52s Find the "lieve.metric" StaticText
+    t =    53.70s Checking existence of `"lieve.metric" StaticText`
+    t =    53.91s Find the "lieve.metric" StaticText
+METRIC channel v1 timeout
+    t =    55.11s Find the Target Application 'com.example.lieve'
+    t =    55.62s Added attachment named 'metric-channel-v1'
+    t =    55.62s Terminate com.example.lieve:24205
+    t =    56.64s Open com.example.lieve
+    t =    56.64s     Launch com.example.lieve
+2026-11-21 12:40:45.186 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: The operation couldn’t be completed. (DebuggerLLDB.DebuggerVersionStore.StoreError error 0.)
+2026-11-21 12:40:45.186 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =    65.55s         Setting up automation session
+    t =    69.50s         Wait for com.example.lieve to idle
+    t =    72.32s Checking existence of `"lieve.metric" StaticText`
+    t =    75.24s Find the "lieve.metric" StaticText
+    t =    79.64s Checking existence of `"lieve.metric" StaticText`
+    t =    79.95s Find the "lieve.metric" StaticText
+    t =    81.21s Checking existence of `"lieve.metric" StaticText`
+    t =    81.43s Find the "lieve.metric" StaticText
+    t =    82.66s Checking existence of `"lieve.metric" StaticText`
+    t =    82.82s Find the "lieve.metric" StaticText
+    t =    84.00s Checking existence of `"lieve.metric" StaticText`
+    t =    84.18s Find the "lieve.metric" StaticText
+    t =    85.35s Checking existence of `"lieve.metric" StaticText`
+    t =    85.51s Find the "lieve.metric" StaticText
+    t =    86.69s Checking existence of `"lieve.metric" StaticText`
+    t =    86.88s Find the "lieve.metric" StaticText
+    t =    88.05s Checking existence of `"lieve.metric" StaticText`
+    t =    88.23s Find the "lieve.metric" StaticText
+    t =    89.39s Checking existence of `"lieve.metric" StaticText`
+    t =    89.57s Find the "lieve.metric" StaticText
+    t =    90.76s Checking existence of `"lieve.metric" StaticText`
+    t =    90.92s Find the "lieve.metric" StaticText
+    t =    92.10s Checking existence of `"lieve.metric" StaticText`
+    t =    92.36s Find the "lieve.metric" StaticText
+    t =    93.57s Checking existence of `"lieve.metric" StaticText`
+    t =    93.72s Find the "lieve.metric" StaticText
+    t =    94.90s Checking existence of `"lieve.metric" StaticText`
+    t =    95.09s Find the "lieve.metric" StaticText
+    t =    96.28s Checking existence of `"lieve.metric" StaticText`
+    t =    96.46s Find the "lieve.metric" StaticText
+    t =    97.64s Checking existence of `"lieve.metric" StaticText`
+    t =    97.82s Find the "lieve.metric" StaticText
+    t =    98.99s Checking existence of `"lieve.metric" StaticText`
+    t =    99.23s Find the "lieve.metric" StaticText
+    t =   100.43s Checking existence of `"lieve.metric" StaticText`
+    t =   100.71s Find the "lieve.metric" StaticText
+    t =   101.89s Checking existence of `"lieve.metric" StaticText`
+    t =   102.05s Find the "lieve.metric" StaticText
+    t =   103.21s Checking existence of `"lieve.metric" StaticText`
+    t =   103.47s Find the "lieve.metric" StaticText
+    t =   104.65s Checking existence of `"lieve.metric" StaticText`
+    t =   104.81s Find the "lieve.metric" StaticText
+    t =   105.98s Checking existence of `"lieve.metric" StaticText`
+    t =   106.15s Find the "lieve.metric" StaticText
+    t =   107.32s Checking existence of `"lieve.metric" StaticText`
+    t =   107.51s Find the "lieve.metric" StaticText
+    t =   108.66s Checking existence of `"lieve.metric" StaticText`
+    t =   108.86s Find the "lieve.metric" StaticText
+    t =   110.03s Checking existence of `"lieve.metric" StaticText`
+    t =   110.21s Find the "lieve.metric" StaticText
+    t =   111.37s Checking existence of `"lieve.metric" StaticText`
+    t =   111.52s Find the "lieve.metric" StaticText
+    t =   112.71s Checking existence of `"lieve.metric" StaticText`
+    t =   112.91s Find the "lieve.metric" StaticText
+    t =   114.11s Checking existence of `"lieve.metric" StaticText`
+    t =   114.28s Find the "lieve.metric" StaticText
+    t =   115.45s Checking existence of `"lieve.metric" StaticText`
+    t =   115.61s Find the "lieve.metric" StaticText
+    t =   116.78s Checking existence of `"lieve.metric" StaticText`
+    t =   117.00s Find the "lieve.metric" StaticText
+METRIC channel v2 timeout
+    t =   118.20s Find the Target Application 'com.example.lieve'
+    t =   118.66s Added attachment named 'metric-channel-v2'
+    t =   118.66s Terminate com.example.lieve:26397
+    t =   119.75s Tear Down
+Test Case '-[LieveUITests.StartTimeTests test1Channel]' passed (120.219 seconds).
+Test Case '-[LieveUITests.StartTimeTests test2Inline]' started.
+    t =     0.00s Start Test at 2026-11-21 12:41:48.683
+    t =     0.03s Set Up
+    t =     0.03s Open com.example.lieve
+    t =     0.03s     Launch com.example.lieve
+2026-11-21 12:41:48.905 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: The operation couldn’t be completed. (DebuggerLLDB.DebuggerVersionStore.StoreError error 0.)
+2026-11-21 12:41:48.905 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.28s         Setting up automation session
+    t =     3.87s         Wait for com.example.lieve to idle
+    t =     6.78s Checking existence of `"lieve.metric" StaticText`
+    t =     6.98s Find the "lieve.metric" StaticText
+    t =     8.06s Checking existence of `"lieve.metric" StaticText`
+    t =    10.17s Find the "lieve.metric" StaticText
+    t =    12.22s Checking existence of `"lieve.metric" StaticText`
+    t =    12.45s Find the "lieve.metric" StaticText
+    t =    13.75s Checking existence of `"lieve.metric" StaticText`
+    t =    13.96s Find the "lieve.metric" StaticText
+    t =    15.14s Checking existence of `"lieve.metric" StaticText`
+    t =    15.33s Find the "lieve.metric" StaticText
+    t =    16.55s Checking existence of `"lieve.metric" StaticText`
+    t =    16.74s Find the "lieve.metric" StaticText
+    t =    17.95s Checking existence of `"lieve.metric" StaticText`
+    t =    18.11s Find the "lieve.metric" StaticText
+    t =    19.28s Checking existence of `"lieve.metric" StaticText`
+    t =    19.47s Find the "lieve.metric" StaticText
+    t =    20.67s Checking existence of `"lieve.metric" StaticText`
+    t =    20.87s Find the "lieve.metric" StaticText
+    t =    22.99s Checking existence of `"lieve.metric" StaticText`
+    t =    23.26s Find the "lieve.metric" StaticText
+    t =    24.44s Checking existence of `"lieve.metric" StaticText`
+    t =    24.61s Find the "lieve.metric" StaticText
+    t =    25.77s Checking existence of `"lieve.metric" StaticText`
+    t =    26.07s Find the "lieve.metric" StaticText
+    t =    27.26s Checking existence of `"lieve.metric" StaticText`
+    t =    27.47s Find the "lieve.metric" StaticText
+    t =    28.67s Checking existence of `"lieve.metric" StaticText`
+    t =    28.84s Find the "lieve.metric" StaticText
+    t =    30.01s Checking existence of `"lieve.metric" StaticText`
+    t =    30.18s Find the "lieve.metric" StaticText
+    t =    31.35s Checking existence of `"lieve.metric" StaticText`
+    t =    31.51s Find the "lieve.metric" StaticText
+    t =    32.68s Checking existence of `"lieve.metric" StaticText`
+    t =    32.85s Find the "lieve.metric" StaticText
+    t =    34.02s Checking existence of `"lieve.metric" StaticText`
+    t =    34.20s Find the "lieve.metric" StaticText
+    t =    35.43s Checking existence of `"lieve.metric" StaticText`
+    t =    35.64s Find the "lieve.metric" StaticText
+    t =    36.85s Checking existence of `"lieve.metric" StaticText`
+    t =    37.04s Find the "lieve.metric" StaticText
+    t =    38.24s Checking existence of `"lieve.metric" StaticText`
+    t =    38.52s Find the "lieve.metric" StaticText
+    t =    39.94s Checking existence of `"lieve.metric" StaticText`
+    t =    40.19s Find the "lieve.metric" StaticText
+    t =    41.51s Checking existence of `"lieve.metric" StaticText`
+    t =    41.73s Find the "lieve.metric" StaticText
+    t =    42.96s Checking existence of `"lieve.metric" StaticText`
+    t =    43.28s Find the "lieve.metric" StaticText
+    t =    44.54s Checking existence of `"lieve.metric" StaticText`
+    t =    44.84s Find the "lieve.metric" StaticText
+    t =    46.09s Checking existence of `"lieve.metric" StaticText`
+    t =    46.27s Find the "lieve.metric" StaticText
+    t =    47.47s Checking existence of `"lieve.metric" StaticText`
+    t =    47.71s Find the "lieve.metric" StaticText
+    t =    48.91s Checking existence of `"lieve.metric" StaticText`
+    t =    49.10s Find the "lieve.metric" StaticText
+    t =    50.28s Checking existence of `"lieve.metric" StaticText`
+    t =    50.45s Find the "lieve.metric" StaticText
+    t =    51.62s Checking existence of `"lieve.metric" StaticText`
+    t =    51.79s Find the "lieve.metric" StaticText
+METRIC inline v1 timeout
+    t =    52.99s Find the Target Application 'com.example.lieve'
+    t =    53.50s Added attachment named 'metric-inline-v1'
+    t =    53.50s Terminate com.example.lieve:28103
+    t =    55.52s Open com.example.lieve
+    t =    55.52s     Launch com.example.lieve
+2026-11-21 12:42:44.210 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: The operation couldn’t be completed. (DebuggerLLDB.DebuggerVersionStore.StoreError error 0.)
+2026-11-21 12:42:44.210 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =    56.26s         Setting up automation session
+    t =    59.77s         Wait for com.example.lieve to idle
+    t =    62.66s Checking existence of `"lieve.metric" StaticText`
+    t =    63.19s Find the "lieve.metric" StaticText
+    t =    67.49s Checking existence of `"lieve.metric" StaticText`
+    t =    70.04s Find the "lieve.metric" StaticText
+    t =    71.27s Checking existence of `"lieve.metric" StaticText`
+    t =    71.59s Find the "lieve.metric" StaticText
+    t =    72.82s Checking existence of `"lieve.metric" StaticText`
+    t =    73.01s Find the "lieve.metric" StaticText
+    t =    74.23s Checking existence of `"lieve.metric" StaticText`
+    t =    74.41s Find the "lieve.metric" StaticText
+    t =    75.58s Checking existence of `"lieve.metric" StaticText`
+    t =    75.78s Find the "lieve.metric" StaticText
+    t =    76.97s Checking existence of `"lieve.metric" StaticText`
+    t =    77.14s Find the "lieve.metric" StaticText
+    t =    78.37s Checking existence of `"lieve.metric" StaticText`
+    t =    78.53s Find the "lieve.metric" StaticText
+    t =    79.71s Checking existence of `"lieve.metric" StaticText`
+    t =    79.89s Find the "lieve.metric" StaticText
+    t =    81.09s Checking existence of `"lieve.metric" StaticText`
+    t =    81.27s Find the "lieve.metric" StaticText
+    t =    82.48s Checking existence of `"lieve.metric" StaticText`
+    t =    82.72s Find the "lieve.metric" StaticText
+    t =    83.90s Checking existence of `"lieve.metric" StaticText`
+    t =    84.09s Find the "lieve.metric" StaticText
+    t =    85.30s Checking existence of `"lieve.metric" StaticText`
+    t =    85.48s Find the "lieve.metric" StaticText
+    t =    86.66s Checking existence of `"lieve.metric" StaticText`
+    t =    86.85s Find the "lieve.metric" StaticText
+    t =    88.04s Checking existence of `"lieve.metric" StaticText`
+    t =    88.23s Find the "lieve.metric" StaticText
+    t =    89.43s Checking existence of `"lieve.metric" StaticText`
+    t =    89.63s Find the "lieve.metric" StaticText
+    t =    90.83s Checking existence of `"lieve.metric" StaticText`
+    t =    90.99s Find the "lieve.metric" StaticText
+    t =    92.15s Checking existence of `"lieve.metric" StaticText`
+    t =    92.34s Find the "lieve.metric" StaticText
+    t =    93.53s Checking existence of `"lieve.metric" StaticText`
+    t =    93.69s Find the "lieve.metric" StaticText
+    t =    94.88s Checking existence of `"lieve.metric" StaticText`
+    t =    95.04s Find the "lieve.metric" StaticText
+    t =    96.24s Checking existence of `"lieve.metric" StaticText`
+    t =    96.41s Find the "lieve.metric" StaticText
+    t =    97.58s Checking existence of `"lieve.metric" StaticText`
+    t =    97.81s Find the "lieve.metric" StaticText
+    t =    99.02s Checking existence of `"lieve.metric" StaticText`
+    t =    99.22s Find the "lieve.metric" StaticText
+    t =   100.42s Checking existence of `"lieve.metric" StaticText`
+    t =   100.62s Find the "lieve.metric" StaticText
+    t =   101.82s Checking existence of `"lieve.metric" StaticText`
+    t =   102.00s Find the "lieve.metric" StaticText
+    t =   103.18s Checking existence of `"lieve.metric" StaticText`
+    t =   103.38s Find the "lieve.metric" StaticText
+    t =   104.55s Checking existence of `"lieve.metric" StaticText`
+    t =   104.74s Find the "lieve.metric" StaticText
+    t =   105.93s Checking existence of `"lieve.metric" StaticText`
+    t =   106.15s Find the "lieve.metric" StaticText
+    t =   107.36s Checking existence of `"lieve.metric" StaticText`
+    t =   107.57s Find the "lieve.metric" StaticText
+METRIC inline v2 timeout
+    t =   108.80s Find the Target Application 'com.example.lieve'
+    t =   109.29s Added attachment named 'metric-inline-v2'
+    t =   109.30s Terminate com.example.lieve:30398
+    t =   110.31s Tear Down
+Test Case '-[LieveUITests.StartTimeTests test2Inline]' passed (111.233 seconds).
+Test Case '-[LieveUITests.StartTimeTests test3Both]' started.
+    t =     0.00s Start Test at 2026-11-21 12:43:39.916
+    t =     0.02s Set Up
+2026-11-21 12:43:39.989 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: The operation couldn’t be completed. (DebuggerLLDB.DebuggerVersionStore.StoreError error 0.)
+2026-11-21 12:43:39.989 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     0.02s Open com.example.lieve
+    t =     0.03s     Launch com.example.lieve
+    t =     0.53s         Setting up automation session
+    t =     3.70s         Wait for com.example.lieve to idle
+    t =     6.44s Checking existence of `"lieve.metric" StaticText`
+    t =     8.58s Find the "lieve.metric" StaticText
+    t =    11.21s Checking existence of `"lieve.metric" StaticText`
+    t =    12.37s Find the "lieve.metric" StaticText
+    t =    13.62s Checking existence of `"lieve.metric" StaticText`
+    t =    13.81s Find the "lieve.metric" StaticText
+    t =    14.99s Checking existence of `"lieve.metric" StaticText`
+    t =    15.19s Find the "lieve.metric" StaticText
+    t =    16.38s Checking existence of `"lieve.metric" StaticText`
+    t =    16.55s Find the "lieve.metric" StaticText
+    t =    17.73s Checking existence of `"lieve.metric" StaticText`
+    t =    17.91s Find the "lieve.metric" StaticText
+    t =    19.11s Checking existence of `"lieve.metric" StaticText`
+    t =    19.28s Find the "lieve.metric" StaticText
+    t =    20.47s Checking existence of `"lieve.metric" StaticText`
+    t =    20.65s Find the "lieve.metric" StaticText
+    t =    21.83s Checking existence of `"lieve.metric" StaticText`
+    t =    22.00s Find the "lieve.metric" StaticText
+    t =    23.18s Checking existence of `"lieve.metric" StaticText`
+    t =    23.36s Find the "lieve.metric" StaticText
+    t =    24.55s Checking existence of `"lieve.metric" StaticText`
+    t =    24.75s Find the "lieve.metric" StaticText
+    t =    25.93s Checking existence of `"lieve.metric" StaticText`
+    t =    26.11s Find the "lieve.metric" StaticText
+    t =    27.30s Checking existence of `"lieve.metric" StaticText`
+    t =    27.46s Find the "lieve.metric" StaticText
+    t =    28.65s Checking existence of `"lieve.metric" StaticText`
+    t =    28.85s Find the "lieve.metric" StaticText
+    t =    30.02s Checking existence of `"lieve.metric" StaticText`
+    t =    30.19s Find the "lieve.metric" StaticText
+    t =    31.35s Checking existence of `"lieve.metric" StaticText`
+    t =    31.53s Find the "lieve.metric" StaticText
+    t =    32.72s Checking existence of `"lieve.metric" StaticText`
+    t =    32.94s Find the "lieve.metric" StaticText
+    t =    34.11s Checking existence of `"lieve.metric" StaticText`
+    t =    34.30s Find the "lieve.metric" StaticText
+    t =    35.49s Checking existence of `"lieve.metric" StaticText`
+    t =    35.70s Find the "lieve.metric" StaticText
+    t =    36.90s Checking existence of `"lieve.metric" StaticText`
+    t =    37.08s Find the "lieve.metric" StaticText
+    t =    38.26s Checking existence of `"lieve.metric" StaticText`
+    t =    38.48s Find the "lieve.metric" StaticText
+    t =    39.68s Checking existence of `"lieve.metric" StaticText`
+    t =    39.85s Find the "lieve.metric" StaticText
+    t =    41.01s Checking existence of `"lieve.metric" StaticText`
+    t =    41.30s Find the "lieve.metric" StaticText
+    t =    42.47s Checking existence of `"lieve.metric" StaticText`
+    t =    42.65s Find the "lieve.metric" StaticText
+    t =    43.83s Checking existence of `"lieve.metric" StaticText`
+    t =    44.01s Find the "lieve.metric" StaticText
+    t =    45.20s Checking existence of `"lieve.metric" StaticText`
+    t =    45.36s Find the "lieve.metric" StaticText
+    t =    46.52s Checking existence of `"lieve.metric" StaticText`
+    t =    46.70s Find the "lieve.metric" StaticText
+    t =    47.88s Checking existence of `"lieve.metric" StaticText`
+    t =    48.04s Find the "lieve.metric" StaticText
+    t =    49.19s Checking existence of `"lieve.metric" StaticText`
+    t =    49.35s Find the "lieve.metric" StaticText
+    t =    50.59s Checking existence of `"lieve.metric" StaticText`
+    t =    50.81s Find the "lieve.metric" StaticText
+METRIC both v1 timeout
+    t =    52.02s Find the Target Application 'com.example.lieve'
+    t =    52.47s Added attachment named 'metric-both-v1'
+    t =    52.47s Terminate com.example.lieve:32302
+    t =    53.52s Open com.example.lieve
+    t =    53.52s     Launch com.example.lieve
+2026-11-21 12:44:33.453 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: The operation couldn’t be completed. (DebuggerLLDB.DebuggerVersionStore.StoreError error 0.)
+2026-11-21 12:44:33.453 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =    53.96s         Setting up automation session
+    t =    56.37s         Wait for com.example.lieve to idle
+    t =    58.72s Checking existence of `"lieve.metric" StaticText`
+    t =    59.00s Find the "lieve.metric" StaticText
+    t =    63.47s Checking existence of `"lieve.metric" StaticText`
+    t =    65.14s Find the "lieve.metric" StaticText
+    t =    66.43s Checking existence of `"lieve.metric" StaticText`
+    t =    66.61s Find the "lieve.metric" StaticText
+    t =    67.80s Checking existence of `"lieve.metric" StaticText`
+    t =    67.97s Find the "lieve.metric" StaticText
+    t =    69.15s Checking existence of `"lieve.metric" StaticText`
+    t =    69.31s Find the "lieve.metric" StaticText
+    t =    70.47s Checking existence of `"lieve.metric" StaticText`
+    t =    70.66s Find the "lieve.metric" StaticText
+    t =    71.83s Checking existence of `"lieve.metric" StaticText`
+    t =    72.12s Find the "lieve.metric" StaticText
+    t =    73.40s Checking existence of `"lieve.metric" StaticText`
+    t =    73.60s Find the "lieve.metric" StaticText
+    t =    74.77s Checking existence of `"lieve.metric" StaticText`
+    t =    74.92s Find the "lieve.metric" StaticText
+    t =    76.08s Checking existence of `"lieve.metric" StaticText`
+    t =    76.25s Find the "lieve.metric" StaticText
+    t =    77.44s Checking existence of `"lieve.metric" StaticText`
+    t =    77.60s Find the "lieve.metric" StaticText
+    t =    78.78s Checking existence of `"lieve.metric" StaticText`
+    t =    78.99s Find the "lieve.metric" StaticText
+    t =    80.20s Checking existence of `"lieve.metric" StaticText`
+    t =    80.38s Find the "lieve.metric" StaticText
+    t =    81.56s Checking existence of `"lieve.metric" StaticText`
+    t =    81.75s Find the "lieve.metric" StaticText
+    t =    82.93s Checking existence of `"lieve.metric" StaticText`
+    t =    83.09s Find the "lieve.metric" StaticText
+    t =    84.25s Checking existence of `"lieve.metric" StaticText`
+    t =    84.42s Find the "lieve.metric" StaticText
+    t =    85.60s Checking existence of `"lieve.metric" StaticText`
+    t =    85.79s Find the "lieve.metric" StaticText
+    t =    86.96s Checking existence of `"lieve.metric" StaticText`
+    t =    87.13s Find the "lieve.metric" StaticText
+    t =    88.33s Checking existence of `"lieve.metric" StaticText`
+    t =    88.48s Find the "lieve.metric" StaticText
+    t =    89.65s Checking existence of `"lieve.metric" StaticText`
+    t =    89.82s Find the "lieve.metric" StaticText
+    t =    91.00s Checking existence of `"lieve.metric" StaticText`
+    t =    91.22s Find the "lieve.metric" StaticText
+    t =    92.41s Checking existence of `"lieve.metric" StaticText`
+    t =    92.60s Find the "lieve.metric" StaticText
+    t =    93.83s Checking existence of `"lieve.metric" StaticText`
+    t =    94.05s Find the "lieve.metric" StaticText
+    t =    95.25s Checking existence of `"lieve.metric" StaticText`
+    t =    95.43s Find the "lieve.metric" StaticText
+    t =    96.62s Checking existence of `"lieve.metric" StaticText`
+    t =    96.83s Find the "lieve.metric" StaticText
+    t =    98.00s Checking existence of `"lieve.metric" StaticText`
+    t =    98.16s Find the "lieve.metric" StaticText
+    t =    99.34s Checking existence of `"lieve.metric" StaticText`
+    t =    99.54s Find the "lieve.metric" StaticText
+    t =   100.75s Checking existence of `"lieve.metric" StaticText`
+    t =   100.93s Find the "lieve.metric" StaticText
+    t =   102.12s Checking existence of `"lieve.metric" StaticText`
+    t =   102.32s Find the "lieve.metric" StaticText
+    t =   103.54s Checking existence of `"lieve.metric" StaticText`
+    t =   103.74s Find the "lieve.metric" StaticText
+METRIC both v2 timeout
+    t =   104.94s Find the Target Application 'com.example.lieve'
+    t =   105.37s Added attachment named 'metric-both-v2'
+    t =   105.38s Terminate com.example.lieve:34482
+    t =   106.40s Tear Down
+Test Case '-[LieveUITests.StartTimeTests test3Both]' passed (106.767 seconds).
+Test Case '-[LieveUITests.StartTimeTests test4Prune]' started.
+    t =     0.00s Start Test at 2026-11-21 12:45:26.684
+    t =     0.02s Set Up
+    t =     0.02s Open com.example.lieve
+    t =     0.02s     Launch com.example.lieve
+2026-11-21 12:45:26.790 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: The operation couldn’t be completed. (DebuggerLLDB.DebuggerVersionStore.StoreError error 0.)
+2026-11-21 12:45:26.790 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     0.55s         Setting up automation session
+    t =     3.43s         Wait for com.example.lieve to idle
+    t =     6.25s Checking existence of `"lieve.metric" StaticText`
+    t =     6.33s Find the "lieve.metric" StaticText
+    t =     8.35s Checking existence of `"lieve.metric" StaticText`
+    t =    10.84s Find the "lieve.metric" StaticText
+    t =    13.69s Checking existence of `"lieve.metric" StaticText`
+    t =    13.89s Find the "lieve.metric" StaticText
+    t =    15.06s Checking existence of `"lieve.metric" StaticText`
+    t =    15.23s Find the "lieve.metric" StaticText
+    t =    16.38s Checking existence of `"lieve.metric" StaticText`
+    t =    16.55s Find the "lieve.metric" StaticText
+    t =    17.71s Checking existence of `"lieve.metric" StaticText`
+    t =    17.87s Find the "lieve.metric" StaticText
+    t =    19.04s Checking existence of `"lieve.metric" StaticText`
+    t =    19.21s Find the "lieve.metric" StaticText
+    t =    20.39s Checking existence of `"lieve.metric" StaticText`
+    t =    20.54s Find the "lieve.metric" StaticText
+    t =    21.70s Checking existence of `"lieve.metric" StaticText`
+    t =    21.87s Find the "lieve.metric" StaticText
+    t =    23.03s Checking existence of `"lieve.metric" StaticText`
+    t =    23.19s Find the "lieve.metric" StaticText
+    t =    24.35s Checking existence of `"lieve.metric" StaticText`
+    t =    24.54s Find the "lieve.metric" StaticText
+    t =    25.72s Checking existence of `"lieve.metric" StaticText`
+    t =    25.90s Find the "lieve.metric" StaticText
+    t =    27.08s Checking existence of `"lieve.metric" StaticText`
+    t =    27.23s Find the "lieve.metric" StaticText
+    t =    28.39s Checking existence of `"lieve.metric" StaticText`
+    t =    28.56s Find the "lieve.metric" StaticText
+    t =    29.73s Checking existence of `"lieve.metric" StaticText`
+    t =    29.91s Find the "lieve.metric" StaticText
+    t =    31.08s Checking existence of `"lieve.metric" StaticText`
+    t =    31.23s Find the "lieve.metric" StaticText
+    t =    32.43s Checking existence of `"lieve.metric" StaticText`
+    t =    32.59s Find the "lieve.metric" StaticText
+    t =    33.79s Checking existence of `"lieve.metric" StaticText`
+    t =    34.07s Find the "lieve.metric" StaticText
+    t =    35.25s Checking existence of `"lieve.metric" StaticText`
+    t =    35.41s Find the "lieve.metric" StaticText
+    t =    36.60s Checking existence of `"lieve.metric" StaticText`
+    t =    36.78s Find the "lieve.metric" StaticText
+    t =    37.97s Checking existence of `"lieve.metric" StaticText`
+    t =    38.14s Find the "lieve.metric" StaticText
+    t =    39.30s Checking existence of `"lieve.metric" StaticText`
+    t =    39.48s Find the "lieve.metric" StaticText
+    t =    40.65s Checking existence of `"lieve.metric" StaticText`
+    t =    40.81s Find the "lieve.metric" StaticText
+    t =    41.98s Checking existence of `"lieve.metric" StaticText`
+    t =    42.13s Find the "lieve.metric" StaticText
+    t =    43.31s Checking existence of `"lieve.metric" StaticText`
+    t =    43.47s Find the "lieve.metric" StaticText
+    t =    44.63s Checking existence of `"lieve.metric" StaticText`
+    t =    44.81s Find the "lieve.metric" StaticText
+    t =    45.98s Checking existence of `"lieve.metric" StaticText`
+    t =    46.15s Find the "lieve.metric" StaticText
+    t =    47.35s Checking existence of `"lieve.metric" StaticText`
+    t =    47.56s Find the "lieve.metric" StaticText
+    t =    48.72s Checking existence of `"lieve.metric" StaticText`
+    t =    48.91s Find the "lieve.metric" StaticText
+    t =    50.07s Checking existence of `"lieve.metric" StaticText`
+    t =    50.23s Find the "lieve.metric" StaticText
+METRIC prune v1 timeout
+    t =    51.38s Find the Target Application 'com.example.lieve'
+    t =    51.84s Added attachment named 'metric-prune-v1'
+    t =    51.84s Terminate com.example.lieve:36991
+    t =    52.85s Open com.example.lieve
+    t =    52.85s     Launch com.example.lieve
+2026-11-21 12:46:19.933 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: The operation couldn’t be completed. (DebuggerLLDB.DebuggerVersionStore.StoreError error 0.)
+2026-11-21 12:46:19.933 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =    54.49s         Setting up automation session
+    t =    57.24s         Wait for com.example.lieve to idle
+    t =    59.92s Checking existence of `"lieve.metric" StaticText`
+    t =    59.97s Find the "lieve.metric" StaticText
+    t =    62.10s Checking existence of `"lieve.metric" StaticText`
+    t =    63.73s Find the "lieve.metric" StaticText
+    t =    66.08s Checking existence of `"lieve.metric" StaticText`
+    t =    66.28s Find the "lieve.metric" StaticText
+    t =    67.45s Checking existence of `"lieve.metric" StaticText`
+    t =    67.65s Find the "lieve.metric" StaticText
+    t =    68.80s Checking existence of `"lieve.metric" StaticText`
+    t =    68.97s Find the "lieve.metric" StaticText
+    t =    70.13s Checking existence of `"lieve.metric" StaticText`
+    t =    70.30s Find the "lieve.metric" StaticText
+    t =    71.47s Checking existence of `"lieve.metric" StaticText`
+    t =    71.64s Find the "lieve.metric" StaticText
+    t =    72.81s Checking existence of `"lieve.metric" StaticText`
+    t =    73.00s Find the "lieve.metric" StaticText
+    t =    74.18s Checking existence of `"lieve.metric" StaticText`
+    t =    74.35s Find the "lieve.metric" StaticText
+    t =    75.52s Checking existence of `"lieve.metric" StaticText`
+    t =    75.70s Find the "lieve.metric" StaticText
+    t =    76.89s Checking existence of `"lieve.metric" StaticText`
+    t =    77.10s Find the "lieve.metric" StaticText
+    t =    78.28s Checking existence of `"lieve.metric" StaticText`
+    t =    78.45s Find the "lieve.metric" StaticText
+    t =    79.61s Checking existence of `"lieve.metric" StaticText`
+    t =    79.79s Find the "lieve.metric" StaticText
+    t =    80.95s Checking existence of `"lieve.metric" StaticText`
+    t =    81.10s Find the "lieve.metric" StaticText
+    t =    82.26s Checking existence of `"lieve.metric" StaticText`
+    t =    82.42s Find the "lieve.metric" StaticText
+    t =    83.59s Checking existence of `"lieve.metric" StaticText`
+    t =    83.76s Find the "lieve.metric" StaticText
+    t =    84.92s Checking existence of `"lieve.metric" StaticText`
+    t =    85.11s Find the "lieve.metric" StaticText
+    t =    86.29s Checking existence of `"lieve.metric" StaticText`
+    t =    86.46s Find the "lieve.metric" StaticText
+    t =    87.68s Checking existence of `"lieve.metric" StaticText`
+    t =    87.86s Find the "lieve.metric" StaticText
+    t =    89.02s Checking existence of `"lieve.metric" StaticText`
+    t =    89.23s Find the "lieve.metric" StaticText
+    t =    90.42s Checking existence of `"lieve.metric" StaticText`
+    t =    90.58s Find the "lieve.metric" StaticText
+    t =    91.74s Checking existence of `"lieve.metric" StaticText`
+    t =    91.91s Find the "lieve.metric" StaticText
+    t =    93.09s Checking existence of `"lieve.metric" StaticText`
+    t =    93.25s Find the "lieve.metric" StaticText
+    t =    94.47s Checking existence of `"lieve.metric" StaticText`
+    t =    94.65s Find the "lieve.metric" StaticText
+    t =    95.83s Checking existence of `"lieve.metric" StaticText`
+    t =    96.00s Find the "lieve.metric" StaticText
+    t =    97.18s Checking existence of `"lieve.metric" StaticText`
+    t =    97.37s Find the "lieve.metric" StaticText
+    t =    98.57s Checking existence of `"lieve.metric" StaticText`
+    t =    98.75s Find the "lieve.metric" StaticText
+    t =    99.94s Checking existence of `"lieve.metric" StaticText`
+    t =   100.11s Find the "lieve.metric" StaticText
+    t =   101.28s Checking existence of `"lieve.metric" StaticText`
+    t =   101.63s Find the "lieve.metric" StaticText
+    t =   102.96s Checking existence of `"lieve.metric" StaticText`
+    t =   103.56s Find the "lieve.metric" StaticText
+    t =   104.85s Checking existence of `"lieve.metric" StaticText`
+    t =   105.26s Find the "lieve.metric" StaticText
+METRIC prune v2 timeout
+    t =   106.54s Find the Target Application 'com.example.lieve'
+    t =   107.31s Added attachment named 'metric-prune-v2'
+    t =   107.32s Terminate com.example.lieve:39117
+    t =   108.40s Tear Down
+Test Case '-[LieveUITests.StartTimeTests test4Prune]' passed (108.792 seconds).
+Test Case '-[LieveUITests.StartTimeTests test5NoBlock]' started.
+    t =     0.00s Start Test at 2026-11-21 12:47:15.476
+    t =     0.02s Set Up
+    t =     0.03s Open com.example.lieve
+    t =     0.03s     Launch com.example.lieve
+2026-11-21 12:47:15.728 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: The operation couldn’t be completed. (DebuggerLLDB.DebuggerVersionStore.StoreError error 0.)
+2026-11-21 12:47:15.728 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.49s         Setting up automation session
+    t =     3.52s         Wait for com.example.lieve to idle
+    t =     5.92s Checking existence of `"lieve.metric" StaticText`
+    t =     6.15s Find the "lieve.metric" StaticText
+    t =     7.60s Checking existence of `"lieve.metric" StaticText`
+    t =     9.33s Find the "lieve.metric" StaticText
+    t =    11.69s Checking existence of `"lieve.metric" StaticText`
+    t =    12.39s Find the "lieve.metric" StaticText
+    t =    14.60s Checking existence of `"lieve.metric" StaticText`
+    t =    14.78s Find the "lieve.metric" StaticText
+    t =    15.98s Checking existence of `"lieve.metric" StaticText`
+    t =    16.17s Find the "lieve.metric" StaticText
+    t =    17.35s Checking existence of `"lieve.metric" StaticText`
+    t =    17.58s Find the "lieve.metric" StaticText
+    t =    18.78s Checking existence of `"lieve.metric" StaticText`
+    t =    18.97s Find the "lieve.metric" StaticText
+    t =    20.19s Checking existence of `"lieve.metric" StaticText`
+    t =    20.39s Find the "lieve.metric" StaticText
+    t =    21.57s Checking existence of `"lieve.metric" StaticText`
+    t =    21.78s Find the "lieve.metric" StaticText
+    t =    22.95s Checking existence of `"lieve.metric" StaticText`
+    t =    23.13s Find the "lieve.metric" StaticText
+    t =    24.33s Checking existence of `"lieve.metric" StaticText`
+    t =    24.53s Find the "lieve.metric" StaticText
+    t =    25.72s Checking existence of `"lieve.metric" StaticText`
+    t =    25.92s Find the "lieve.metric" StaticText
+    t =    27.12s Checking existence of `"lieve.metric" StaticText`
+    t =    27.33s Find the "lieve.metric" StaticText
+    t =    28.53s Checking existence of `"lieve.metric" StaticText`
+    t =    28.70s Find the "lieve.metric" StaticText
+    t =    29.89s Checking existence of `"lieve.metric" StaticText`
+    t =    30.08s Find the "lieve.metric" StaticText
+    t =    31.26s Checking existence of `"lieve.metric" StaticText`
+    t =    31.45s Find the "lieve.metric" StaticText
+    t =    32.66s Checking existence of `"lieve.metric" StaticText`
+    t =    32.87s Find the "lieve.metric" StaticText
+    t =    34.12s Checking existence of `"lieve.metric" StaticText`
+    t =    34.35s Find the "lieve.metric" StaticText
+    t =    35.59s Checking existence of `"lieve.metric" StaticText`
+    t =    35.78s Find the "lieve.metric" StaticText
+    t =    36.98s Checking existence of `"lieve.metric" StaticText`
+    t =    37.15s Find the "lieve.metric" StaticText
+    t =    38.31s Checking existence of `"lieve.metric" StaticText`
+    t =    38.52s Find the "lieve.metric" StaticText
+    t =    39.72s Checking existence of `"lieve.metric" StaticText`
+    t =    39.92s Find the "lieve.metric" StaticText
+    t =    41.12s Checking existence of `"lieve.metric" StaticText`
+    t =    41.30s Find the "lieve.metric" StaticText
+    t =    42.52s Checking existence of `"lieve.metric" StaticText`
+    t =    42.73s Find the "lieve.metric" StaticText
+    t =    43.92s Checking existence of `"lieve.metric" StaticText`
+    t =    44.10s Find the "lieve.metric" StaticText
+    t =    45.29s Checking existence of `"lieve.metric" StaticText`
+    t =    45.48s Find the "lieve.metric" StaticText
+    t =    46.70s Checking existence of `"lieve.metric" StaticText`
+    t =    46.89s Find the "lieve.metric" StaticText
+    t =    48.05s Checking existence of `"lieve.metric" StaticText`
+    t =    48.23s Find the "lieve.metric" StaticText
+    t =    49.42s Checking existence of `"lieve.metric" StaticText`
+    t =    49.60s Find the "lieve.metric" StaticText
+    t =    50.81s Checking existence of `"lieve.metric" StaticText`
+    t =    50.99s Find the "lieve.metric" StaticText
+METRIC noblock v1 timeout
+    t =    52.16s Find the Target Application 'com.example.lieve'
+    t =    52.66s Added attachment named 'metric-noblock-v1'
+    t =    52.66s Terminate com.example.lieve:41020
+    t =    53.74s Open com.example.lieve
+    t =    53.74s     Launch com.example.lieve
+2026-11-21 12:48:09.567 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: The operation couldn’t be completed. (DebuggerLLDB.DebuggerVersionStore.StoreError error 0.)
+2026-11-21 12:48:09.567 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =    54.60s         Setting up automation session
+    t =    57.60s         Wait for com.example.lieve to idle
+    t =    60.31s Checking existence of `"lieve.metric" StaticText`
+    t =    60.38s Find the "lieve.metric" StaticText
+    t =    62.40s Checking existence of `"lieve.metric" StaticText`
+    t =    64.63s Find the "lieve.metric" StaticText
+    t =    67.14s Checking existence of `"lieve.metric" StaticText`
+    t =    67.37s Find the "lieve.metric" StaticText
+    t =    68.58s Checking existence of `"lieve.metric" StaticText`
+    t =    68.77s Find the "lieve.metric" StaticText
+    t =    70.02s Checking existence of `"lieve.metric" StaticText`
+    t =    70.20s Find the "lieve.metric" StaticText
+    t =    71.40s Checking existence of `"lieve.metric" StaticText`
+    t =    71.59s Find the "lieve.metric" StaticText
+    t =    72.79s Checking existence of `"lieve.metric" StaticText`
+    t =    72.99s Find the "lieve.metric" StaticText
+    t =    74.18s Checking existence of `"lieve.metric" StaticText`
+    t =    74.36s Find the "lieve.metric" StaticText
+    t =    75.55s Checking existence of `"lieve.metric" StaticText`
+    t =    75.74s Find the "lieve.metric" StaticText
+    t =    76.94s Checking existence of `"lieve.metric" StaticText`
+    t =    77.13s Find the "lieve.metric" StaticText
+    t =    78.31s Checking existence of `"lieve.metric" StaticText`
+    t =    78.51s Find the "lieve.metric" StaticText
+    t =    79.69s Checking existence of `"lieve.metric" StaticText`
+    t =    79.87s Find the "lieve.metric" StaticText
+    t =    81.04s Checking existence of `"lieve.metric" StaticText`
+    t =    81.24s Find the "lieve.metric" StaticText
+    t =    82.44s Checking existence of `"lieve.metric" StaticText`
+    t =    82.63s Find the "lieve.metric" StaticText
+    t =    83.81s Checking existence of `"lieve.metric" StaticText`
+    t =    84.00s Find the "lieve.metric" StaticText
+    t =    85.20s Checking existence of `"lieve.metric" StaticText`
+    t =    85.48s Find the "lieve.metric" StaticText
+    t =    86.68s Checking existence of `"lieve.metric" StaticText`
+    t =    86.85s Find the "lieve.metric" StaticText
+    t =    88.05s Checking existence of `"lieve.metric" StaticText`
+    t =    88.24s Find the "lieve.metric" StaticText
+    t =    89.43s Checking existence of `"lieve.metric" StaticText`
+    t =    89.63s Find the "lieve.metric" StaticText
+    t =    90.83s Checking existence of `"lieve.metric" StaticText`
+    t =    91.03s Find the "lieve.metric" StaticText
+    t =    92.21s Checking existence of `"lieve.metric" StaticText`
+    t =    92.41s Find the "lieve.metric" StaticText
+    t =    93.62s Checking existence of `"lieve.metric" StaticText`
+    t =    93.82s Find the "lieve.metric" StaticText
+    t =    95.00s Checking existence of `"lieve.metric" StaticText`
+    t =    95.20s Find the "lieve.metric" StaticText
+    t =    96.41s Checking existence of `"lieve.metric" StaticText`
+    t =    96.60s Find the "lieve.metric" StaticText
+    t =    97.79s Checking existence of `"lieve.metric" StaticText`
+    t =    98.00s Find the "lieve.metric" StaticText
+    t =    99.21s Checking existence of `"lieve.metric" StaticText`
+    t =    99.42s Find the "lieve.metric" StaticText
+    t =   100.62s Checking existence of `"lieve.metric" StaticText`
+    t =   100.80s Find the "lieve.metric" StaticText
+    t =   101.99s Checking existence of `"lieve.metric" StaticText`
+    t =   102.16s Find the "lieve.metric" StaticText
+    t =   103.36s Checking existence of `"lieve.metric" StaticText`
+    t =   103.53s Find the "lieve.metric" StaticText
+    t =   104.71s Checking existence of `"lieve.metric" StaticText`
+    t =   104.88s Find the "lieve.metric" StaticText
+METRIC noblock v2 timeout
+    t =   106.06s Find the Target Application 'com.example.lieve'
+    t =   106.53s Added attachment named 'metric-noblock-v2'
+    t =   106.54s Terminate com.example.lieve:43438
+    t =   107.58s Tear Down
+Test Case '-[LieveUITests.StartTimeTests test5NoBlock]' passed (108.216 seconds).
+Test Case '-[LieveUITests.StartTimeTests test6MiniPlayer]' started.
+    t =     0.00s Start Test at 2026-11-21 12:49:03.693
+2026-11-21 12:49:04.870 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: The operation couldn’t be completed. (DebuggerLLDB.DebuggerVersionStore.StoreError error 0.)
+2026-11-21 12:49:04.870 xcodebuild[18775:53297] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.12s Set Up
+    t =     1.13s Open com.example.lieve
+    t =     1.13s     Launch com.example.lieve
+    t =     1.67s         Setting up automation session
+    t =     4.03s         Wait for com.example.lieve to idle
+    t =    26.65s Find the Target Application 'com.example.lieve'
+    t =    27.09s Added attachment named 'mini-1-prima'
+    t =    27.10s Press Target Application 'com.example.lieve'[0.50, 0.20] for 0.1 seconds, then drag to Target Application 'com.example.lieve'[0.50, 0.90] with velocity of 500.00 pixels per second, and then hold for 0.1 seconds 
+    t =    27.10s     Wait for com.example.lieve to idle
+    t =    27.11s     Find the Target Application 'com.example.lieve'
+    t =    27.22s     Check for interrupting elements affecting "Lieve" Application
+    t =    27.35s     Synthesize event
+    t =    27.37s         Find the Target Application 'com.example.lieve'
+    t =    27.47s         Find the Target Application 'com.example.lieve'
+    t =    27.67s         Find the Target Application 'com.example.lieve'
+    t =    27.78s         Find the Target Application 'com.example.lieve'
+    t =    27.93s         Find the Target Application 'com.example.lieve'
+    t =    29.69s     Wait for com.example.lieve to idle
+    t =    33.18s Find the Target Application 'com.example.lieve'
+    t =    33.53s Added attachment named 'mini-2-dopo-trascinamento'
+MINIPLAYER done
+    t =    33.54s Tear Down
+Test Case '-[LieveUITests.StartTimeTests test6MiniPlayer]' passed (33.979 seconds).
+Test Suite 'StartTimeTests' passed at 2026-11-21 12:49:37.673.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 589.206 (589.212) seconds
+Test Suite 'LieveUITests.xctest' passed at 2026-11-21 12:49:37.673.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 901.624 (901.637) seconds
+Test Suite 'All tests' passed at 2026-11-21 12:49:37.674.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 901.624 (901.644) seconds
+2026-11-21 12:49:39.593 xcodebuild[18775:53297] [MT] IDETestOperationsObserverDebug: 1128.852 elapsed -- Testing started completed.
+2026-11-21 12:49:39.593 xcodebuild[18775:53297] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-21 12:49:39.593 xcodebuild[18775:53297] [MT] IDETestOperationsObserverDebug: 1128.852 sec, +1128.851 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/work/_temp/ui.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started
