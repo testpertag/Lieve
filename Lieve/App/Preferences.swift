@@ -5,7 +5,7 @@ enum Preferences {
     static let adBlockKey = "adBlock"
     static let backgroundPlayKey = "backgroundPlay"
     static let autoPiPKey = "autoPiP"
-    /// Tecnica anti-pubblicità su YouTube: "channel" | "inline" | "both" | "prune".
+    /// Tecnica anti-pubblicità su YouTube: "skip" | "channel" | "inline" | "both" | "prune".
     static let adStrategyKey = "adStrategy"
 
     static func registerDefaults() {
@@ -13,7 +13,7 @@ enum Preferences {
             adBlockKey: true,
             backgroundPlayKey: true,
             autoPiPKey: false,
-            adStrategyKey: "channel",
+            adStrategyKey: "skip",
         ])
     }
 
@@ -21,7 +21,7 @@ enum Preferences {
     static var backgroundPlay: Bool { UserDefaults.standard.bool(forKey: backgroundPlayKey) }
     static var autoPiP: Bool { UserDefaults.standard.bool(forKey: autoPiPKey) }
     static var adStrategy: String {
-        let value = UserDefaults.standard.string(forKey: adStrategyKey) ?? "channel"
-        return ["channel", "inline", "both", "prune"].contains(value) ? value : "channel"
+        let value = UserDefaults.standard.string(forKey: adStrategyKey) ?? "skip"
+        return ["skip", "channel", "inline", "both", "prune"].contains(value) ? value : "skip"
     }
 }

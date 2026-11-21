@@ -11,6 +11,18 @@ const R = Reflect;
 // Sostituisce un metodo/getter mantenendo l'aspetto nativo (Proxy su funzione nativa).
 const wrap = (fn, apply) => new P(fn, { apply });
 
+// Strategia corrente: "skip" | "channel" | "inline" | "both" | "prune".
+// Può cambiare da sola se un video resta bloccato (sezione 6).
+let strategy = LIEVE.strategy || 'skip';
+const store = (() => { try { return window.sessionStorage; } catch (_) { return null; } })();
+try {
+  // Tecnica scelta dal recupero automatico prima di una ricarica (valida 10 minuti).
+  const saved = store && JSON.parse(store.getItem('lieve.s') || 'null');
+  if (saved && Date.now() - saved.t < 600000) strategy = saved.s;
+} catch (_) {}
+const nativeSetTimeout = window.setTimeout;
+const nativeClearTimeout = window.clearTimeout;
+
 // ---------------------------------------------------------------------------
 // 1) Riproduzione in background: la pagina vede sempre "visibile".
 // ---------------------------------------------------------------------------
@@ -58,7 +70,7 @@ if (LIEVE.adblock) {
 
   // Controlli puntuali su poche chiavi: costo trascurabile per ogni JSON.
   const prune = (root) => {
-    if (!root || typeof root !== 'object') return root;
+    if (strategy === 'skip' || !root || typeof root !== 'object') return root;
     try {
       stripKeys(root);
       if (root.playerResponse) stripKeys(root.playerResponse);
@@ -125,21 +137,11 @@ if (LIEVE.adblock) {
 //    su JSON.stringify): clientScreen CHANNEL oppure isInlinePlaybackNoAd.
 //    LIEVE.strategy: "channel" | "inline" | "both" | "prune" (solo rimozione).
 // ---------------------------------------------------------------------------
-// Strategia corrente: può cambiare da sola se un video resta bloccato (sezione 6).
-let strategy = LIEVE.strategy || 'channel';
-const store = (() => { try { return window.sessionStorage; } catch (_) { return null; } })();
-try {
-  // Tecnica scelta dal recupero automatico prima di una ricarica (valida 10 minuti).
-  const saved = store && JSON.parse(store.getItem('lieve.s') || 'null');
-  if (saved && Date.now() - saved.t < 600000 && LIEVE.strategy !== 'prune') strategy = saved.s;
-} catch (_) {}
-const nativeSetTimeout = window.setTimeout;
-const nativeClearTimeout = window.clearTimeout;
 
 if (LIEVE.adblock) {
   const editPlayerRequest = (o) => {
     const S = strategy;
-    if (S === 'prune') return;
+    if (S === 'prune' || S === 'skip') return;
     if (!o || typeof o !== 'object') return;
     const pc = o.playbackContext;
     const cpc = pc && pc.contentPlaybackContext;
@@ -169,27 +171,39 @@ if (LIEVE.adblock) {
 }
 
 // ---------------------------------------------------------------------------
-// 5) Spot rimasti (anche inseriti nel flusso, "SSAP"): salto alla loro fine con
-//    l'API del player, più clic su "Salta". Solo su eventi, nessun polling.
+// 5) Salto degli spot: lo spot arriva, viene silenziato e portato subito alla fine
+//    (o si clicca "Salta"). Per YouTube risulta riprodotto: nessuna penalità.
+//    È la tecnica principale in modalità "skip" e la rete di sicurezza nelle altre.
+//    Solo su eventi del player e del video, nessun polling.
 // ---------------------------------------------------------------------------
 if (LIEVE.adblock) {
   const SKIP = '.ytp-skip-ad-button, .ytp-ad-skip-button, .ytp-ad-skip-button-modern, '
              + '.ytp-ad-skip-button-container button, button.ytm-skip-ad-button';
   const watched = new WeakSet();
+  const muted = new WeakMap();          // video -> stato "muto" prima dello spot
 
   const inAd = (p) => {
-    if (p.classList.contains('ad-showing')) return true;
+    if (p.classList.contains('ad-showing') || p.classList.contains('ad-interrupting')) return true;
     try {
       const st = typeof p.getStatsForNerds === 'function' ? p.getStatsForNerds() : null;
       return !!(st && typeof st.debug_info === 'string' && st.debug_info.startsWith('SSAP, AD'));
     } catch (_) { return false; }
   };
 
-  const skip = (p) => {
-    if (!inAd(p)) return;
+  const handle = (p, video) => {
+    if (!inAd(p)) {
+      if (video && muted.has(video)) { video.muted = muted.get(video); muted.delete(video); }
+      return;
+    }
+    if (video && !muted.has(video)) { muted.set(video, video.muted); video.muted = true; }
     const btn = p.querySelector(SKIP);
     if (btn) { btn.click(); return; }
     try {
+      // Spot separato: il <video> contiene solo lo spot, basta portarlo alla fine.
+      if (video && isFinite(video.duration) && video.duration > 0 && video.currentTime < video.duration - 0.25) {
+        video.currentTime = video.duration;
+      }
+      // Spot inserito nel flusso (SSAP): fine dello spot secondo il player.
       const pr = typeof p.getProgressState === 'function' ? p.getProgressState() : null;
       if (pr && pr.duration > 0 && typeof p.seekTo === 'function') p.seekTo(pr.duration);
     } catch (_) {}
@@ -200,9 +214,10 @@ if (LIEVE.adblock) {
     if (!p) return;
     if (!watched.has(p)) {
       watched.add(p);
-      new MutationObserver(() => skip(p)).observe(p, { attributes: true, attributeFilter: ['class'] });
+      new MutationObserver(() => handle(p, p.querySelector('video')))
+        .observe(p, { attributes: true, attributeFilter: ['class'] });
     }
-    skip(p);
+    handle(p, video);
   };
 
   for (const type of ['loadedmetadata', 'playing']) {
@@ -210,6 +225,13 @@ if (LIEVE.adblock) {
       if (e.target && e.target.tagName === 'VIDEO') attach(e.target);
     }, true);
   }
+  // Durante uno spot, nuovo tentativo a ogni avanzamento (se il primo salto non è andato).
+  document.addEventListener('timeupdate', (e) => {
+    const v = e.target;
+    if (!v || v.tagName !== 'VIDEO') return;
+    const p = v.closest('#movie_player, .html5-video-player');
+    if (p && p.classList.contains('ad-showing')) handle(p, v);
+  }, true);
 }
 
 // ---------------------------------------------------------------------------
@@ -220,7 +242,7 @@ if (LIEVE.adblock) {
 //    del 17/11/2026 (loadVideoById con un'altra variante della richiesta).
 // ---------------------------------------------------------------------------
 if (LIEVE.adblock) {
-  const ORDER = ['channel', 'inline', 'prune'];
+  const ORDER = ['skip', 'channel', 'inline', 'prune'];
   const WAIT_MS = 7000;
   let timer = 0, retries = 0, lastId = '';
 

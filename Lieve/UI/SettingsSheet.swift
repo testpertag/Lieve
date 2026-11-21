@@ -6,7 +6,7 @@ struct SettingsSheet: View {
     @AppStorage(Preferences.adBlockKey) private var adBlock = true
     @AppStorage(Preferences.backgroundPlayKey) private var backgroundPlay = true
     @AppStorage(Preferences.autoPiPKey) private var autoPiP = false
-    @AppStorage(Preferences.adStrategyKey) private var adStrategy = "channel"
+    @AppStorage(Preferences.adStrategyKey) private var adStrategy = "skip"
     @State private var changed = false
     private var filters: FilterManager { FilterManager.shared }
 
@@ -30,6 +30,7 @@ struct SettingsSheet: View {
 
                 Section {
                     Picker("Tecnica anti-pubblicità", selection: $adStrategy) {
+                        Text("Salta gli spot (consigliata)").tag("skip")
                         Text("Richiesta senza annunci").tag("channel")
                         Text("Modalità anteprima").tag("inline")
                         Text("Entrambe").tag("both")

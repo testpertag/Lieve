@@ -48,7 +48,7 @@ const run = (ctx, id, cfg) => vm.runInContext(script(id).replace('__LIEVE_CFG__'
 // --- 1. Script attivo su m.youtube.com ---------------------------------------
 {
   const ctx = makeContext('m.youtube.com');
-  run(ctx, 'youtube-page', { adblock: true, background: true });
+  run(ctx, 'youtube-page', { adblock: true, background: true, strategy: 'channel' });
 
   // Visibilità sempre "visibile"
   assert.equal(vm.runInContext('document.hidden', ctx), false);
@@ -109,7 +109,7 @@ const run = (ctx, id, cfg) => vm.runInContext(script(id).replace('__LIEVE_CFG__'
 
 // --- 1b. Richiesta del player "senza annunci" e timer dell'attesa --------------
 const playerRequest = '({ context: { client: { clientName: "MWEB", clientScreen: "WATCH" } }, playbackContext: { contentPlaybackContext: { vis: 0 } }, videoId: "x" })';
-for (const [strategy, screen, inline] of [['channel', 'CHANNEL', undefined], ['inline', 'WATCH', true], ['both', 'CHANNEL', true], ['prune', 'WATCH', undefined]]) {
+for (const [strategy, screen, inline] of [['channel', 'CHANNEL', undefined], ['inline', 'WATCH', true], ['both', 'CHANNEL', true], ['prune', 'WATCH', undefined], ['skip', 'WATCH', undefined]]) {
   const ctx = makeContext('m.youtube.com');
   run(ctx, 'youtube-page', { adblock: true, background: true, strategy });
   const sent = JSON.parse(vm.runInContext(`JSON.stringify(${playerRequest})`, ctx));
@@ -122,6 +122,36 @@ for (const [strategy, screen, inline] of [['channel', 'CHANNEL', undefined], ['i
   assert.deepEqual(ctx.__timers, [17, 17000, 5000]);
   // Salto spot: ascoltatori sui media registrati
   assert.ok(ctx.__docListeners.includes('playing') && ctx.__docListeners.includes('loadedmetadata'));
+}
+
+// --- 1d. Modalità "skip": nessuna rimozione, spot silenziato e portato alla fine -
+{
+  const ctx = makeContext('m.youtube.com');
+  const h = {};
+  Object.getPrototypeOf(ctx.document).addEventListener = function (type, fn) { (h[type] ||= []).push(fn); };
+  let observerCb = null;
+  ctx.MutationObserver = class { constructor(cb) { observerCb = cb; } observe() {} };
+  run(ctx, 'youtube-page', { adblock: true, background: true, strategy: 'skip' });
+  // Nessuna rimozione dai dati
+  assert.deepEqual(vm.runInContext('JSON.parse(\'{"adPlacements":[1],"x":1}\')', ctx), { adPlacements: [1], x: 1 });
+  // Spot in corso
+  const classes = new Set(['ad-showing']);
+  const video = { tagName: 'VIDEO', muted: false, duration: 15, currentTime: 0.3 };
+  const player = { classList: { contains: (c) => classes.has(c) }, querySelector: (q) => (q === 'video' ? video : null),
+                   getProgressState: () => ({ duration: 15 }), seekTo: (t) => { player.sought = t; } };
+  video.closest = () => player;
+  h.playing.forEach((fn) => fn({ target: video }));
+  assert.equal(video.muted, true);
+  assert.equal(video.currentTime, 15);
+  assert.equal(player.sought, 15);
+  // Fine dello spot: audio ripristinato
+  classes.delete('ad-showing');
+  observerCb();
+  assert.equal(video.muted, false);
+  // Video normale: nessun intervento
+  video.currentTime = 3;
+  h.timeupdate.forEach((fn) => fn({ target: video }));
+  assert.equal(video.currentTime, 3);
 }
 
 // --- 1c. Recupero automatico di un video bloccato ------------------------------
